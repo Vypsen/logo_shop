@@ -1,29 +1,59 @@
 version: '3'
 services:
-    server:
+#    server:
+#        build:
+#            context: .
+#            dockerfile: ./docker/nginx/Dockerfile
+#        ports:
+#            - "${APP_DOCKER_HOST_PORT}:80"
+#        networks:
+#            - sail
+#        links:
+#            - app
+    app:
+        container_name: 'main_container'
         build:
-            context: .
-            dockerfile: ./docker/nginx/Dockerfile
+            context: ./vendor/laravel/sail/runtimes/8.1
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: sail-8.1/app
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
         ports:
-            - "${APP_DOCKER_HOST_PORT}:80"
-        links:
-            - php
-    php:
-        build:
-            context: .
-            dockerfile: docker/php/Dockerfile
-#        extra_hosts:
-#            - 'host.docker.internal:host-gateway'
-        volumes:
-            - '.:/var/www/logo_shop'
-        links:
-            - database
-
-    database:
-        image: postgres:13
+            - '${APP_PORT:-80}:80'
         environment:
-            - POSTGRES_DB=${DB_DATABASE}
-            - POSTGRES_USER=${DB_USERNAME}
-            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - pgsql
+    pgsql:
+        container_name: 'pgsql'
+        image: 'postgres:13'
         ports:
-            - "${DB_PORT}:5432"
+            - '5432:5432'
+        environment:
+            PGPASSWORD: '${DB_PASSWORD:-secret}'
+            POSTGRES_DB: '${DB_DATABASE}'
+            POSTGRES_USER: '${DB_USERNAME}'
+            POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
+        volumes:
+            - 'sail-pgsql:/var/lib/postgresql/data'
+        networks:
+             - sail
+        healthcheck:
+            test: [ "CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}" ]
+            retries: 3
+            timeout: 5s
+networks:
+    sail:
+        driver: bridge
+volumes:
+    sail-pgsql:
+        driver: local
