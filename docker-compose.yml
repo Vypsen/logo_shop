@@ -10,7 +10,7 @@ services:
 #            - sail
 #        links:
 #            - app
-    app:
+    logo_app.local:
         container_name: 'main_container'
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
