@@ -16,6 +16,6 @@ class ColorsDatabaseSeeder extends Seeder
     public function run()
     {
         Color::query()->delete();
-        Color::factory(random_int(20, 30))->create();
+        Color::factory(random_int(2, 10))->create();
     }
 }

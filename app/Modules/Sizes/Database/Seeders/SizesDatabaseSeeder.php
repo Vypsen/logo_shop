@@ -15,6 +15,6 @@ class SizesDatabaseSeeder extends Seeder
     public function run()
     {
         Size::query()->delete();
-        Size::factory(random_int(20, 30))->create();
+        Size::factory(random_int(3, 10))->create();
     }
 }

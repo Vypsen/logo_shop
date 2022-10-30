@@ -14,11 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products_sizes', function (Blueprint $table) {
-            $table->foreignId('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
+            $table->id();
 
             $table->foreignId('size_id');
             $table->foreign('size_id')->references('id')->on('sizes')->cascadeOnDelete();
+
+            $table->foreignId('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
+
         });
     }
 
