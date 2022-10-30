@@ -2,8 +2,8 @@
 
 namespace App\Modules\Sizes\Database\Seeders;
 
+use App\Modules\Sizes\Entities\Size;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class SizesDatabaseSeeder extends Seeder
 {
@@ -14,8 +14,7 @@ class SizesDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        // $this->call("OthersTableSeeder");
+        Size::query()->delete();
+        Size::factory(random_int(20, 30))->create();
     }
 }

@@ -2,16 +2,18 @@
 
 namespace App\Modules\Sizes\Database\factories;
 
+use App\Modules\Sizes\Entities\Size;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SizeFactory extends Factory
 {
+
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = \App\Modules\Sizes\Entities\Sizefactory::class;
+    protected $model = Size::class;
 
     /**
      * Define the model's default state.
@@ -21,7 +23,7 @@ class SizeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'size_name' => $this->faker->word,
         ];
     }
 }
