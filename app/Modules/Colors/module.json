@@ -1,0 +1,11 @@
+{
+    "name": "Colors",
+    "alias": "colors",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\Colors\\Providers\\ColorsServiceProvider"
+    ],
+    "files": []
+}
