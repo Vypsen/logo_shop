@@ -4,7 +4,6 @@ namespace App\Modules\Products\Entities;
 
 use App\Modules\Colors\Database\factories\ColorFactory;
 use App\Modules\Colors\Entities\Color;
-use App\Modules\Products\Database\factories\ProductFactory;
 use App\Modules\Sizes\Entities\Size;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +29,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read int|null $colors_count
  * @property-read \Illuminate\Database\Eloquent\Collection|Size[] $sizes
  * @property-read int|null $sizes_count
- * @method static \App\Modules\Products\Database\factories\ProductFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Product findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
@@ -72,9 +70,5 @@ class Product extends Model
         return $this->belongsToMany(Size::class, 'products_sizes');
     }
 
-    protected static function newFactory()
-    {
-        return ProductFactory::new();
-    }
 
 }
