@@ -1,0 +1,11 @@
+{
+    "name": "Sizes",
+    "alias": "sizes",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\Sizes\\Providers\\SizesServiceProvider"
+    ],
+    "files": []
+}
