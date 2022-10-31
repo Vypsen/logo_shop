@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Modules\Products\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/products', function (Request $request) {
-    return $request->user();
+Route::prefix('catalog')->group(function () {
+    Route::get('product/list', [ProductsController::class, 'index']);
+    Route::get('product/details', [ProductsController::class, 'show']);
 });
