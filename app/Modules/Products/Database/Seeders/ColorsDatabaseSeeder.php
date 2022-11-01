@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Modules\Colors\Database\Seeders;
+namespace App\Modules\Products\Database\Seeders;
 
-use App\Modules\Colors\Entities\Color;
+use App\Modules\Products\Entities\Color;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class ColorsDatabaseSeeder extends Seeder
 {

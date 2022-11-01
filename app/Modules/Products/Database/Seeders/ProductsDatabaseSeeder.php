@@ -2,9 +2,9 @@
 
 namespace App\Modules\Products\Database\Seeders;
 
-use App\Modules\Colors\Entities\Color;
+use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Product;
-use App\Modules\Sizes\Entities\Size;
+use App\Modules\Products\Entities\Size;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 

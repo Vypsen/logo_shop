@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Modules\Sizes\Database\Seeders;
+namespace App\Modules\Products\Database\Seeders;
 
-use App\Modules\Sizes\Entities\Size;
+use App\Modules\Products\Entities\Size;
 use Illuminate\Database\Seeder;
 
 class SizesDatabaseSeeder extends Seeder

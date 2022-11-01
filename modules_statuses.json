@@ -1,5 +1,6 @@
 {
     "Products": true,
     "Colors": true,
-    "Sizes": true
+    "Sizes": true,
+    "Images": true
 }

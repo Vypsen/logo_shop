@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Modules\Sizes\Entities;
+namespace App\Modules\Products\Entities;
 
-use App\Modules\Products\Entities\Product;
-use App\Modules\Sizes\Database\factories\SizeFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Modules\Products\Database\factories\SizeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -15,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $size_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \App\Modules\Sizes\Database\factories\SizeFactory factory(...$parameters)
+ * @method static \App\Modules\Products\Database\factories\SizeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Size newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Size newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Size query()

@@ -38,19 +38,23 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
 }
 
 namespace App\Modules\Colors\Entities{
-/**
+
+    use App\Modules\Products\Entities\Color;
+
+    /**
  * App\Modules\Colors\Entities\Color
  *
  * @property int $id
  * @property string $color_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \App\Modules\Colors\Database\factories\ColorFactory factory(...$parameters)
+ * @method static \App\Modules\Products\Database\factories\ColorFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Color newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Color newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Color query()
@@ -58,8 +62,9 @@ namespace App\Modules\Colors\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Color whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Color whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Color whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class Color extends \Eloquent {}
+	class Models extends \Eloquent {}
 }
 
 namespace App\Modules\Products\Entities{
@@ -77,7 +82,10 @@ namespace App\Modules\Products\Entities{
  * @property bool $is_new
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \App\Modules\Products\Database\factories\ProductFactory factory(...$parameters)
+ * @property-read \Illuminate\Database\Eloquent\Collection|Color[] $colors
+ * @property-read int|null $colors_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|Size[] $sizes
+ * @property-read int|null $sizes_count
  * @method static \Illuminate\Database\Eloquent\Builder|Product findSimilarSlugs(string $attribute, array $config, string $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
@@ -94,6 +102,9 @@ namespace App\Modules\Products\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Size[] $images
+ * @property-read int|null $images_count
  */
 	class Product extends \Eloquent {}
 }
@@ -106,14 +117,15 @@ namespace App\Modules\Sizes\Entities{
  * @property string $size_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \App\Modules\Sizes\Database\factories\SizeFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Size newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Size newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Size query()
- * @method static \Illuminate\Database\Eloquent\Builder|Size whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Size whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Size whereSizeName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Size whereUpdatedAt($value)
+ * @method static \App\Modules\Products\Database\factories\SizeFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereSizeName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class Size extends \Eloquent {}
 }

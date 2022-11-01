@@ -2,12 +2,9 @@
 
 namespace App\Modules\Products\Entities;
 
-use App\Modules\Colors\Database\factories\ColorFactory;
-use App\Modules\Colors\Entities\Color;
-use App\Modules\Sizes\Entities\Size;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -47,6 +44,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
  */
+
 class Product extends Model
 {
     use HasFactory, Sluggable;
@@ -68,6 +66,11 @@ class Product extends Model
     public function sizes(): BelongsToMany
     {
         return $this->belongsToMany(Size::class, 'products_sizes');
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Size::class, 'products_images');
     }
 
 

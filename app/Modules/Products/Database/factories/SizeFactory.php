@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Modules\Colors\Database\factories;
+namespace App\Modules\Products\Database\factories;
 
-use App\Modules\Colors\Entities\Color;
+use App\Modules\Products\Entities\Size;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ColorFactory extends Factory
+class SizeFactory extends Factory
 {
 
     /**
@@ -13,7 +13,7 @@ class ColorFactory extends Factory
      *
      * @var string
      */
-    protected $model = Color::class;
+    protected $model = Size::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class ColorFactory extends Factory
     public function definition()
     {
         return [
-            'color_name' => $this->faker->colorName,
+            'size_name' => $this->faker->word,
         ];
     }
 }

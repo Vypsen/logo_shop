@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Modules\Colors\Entities;
+namespace App\Modules\Products\Entities;
 
-use App\Modules\Colors\Database\factories\ColorFactory;
-use App\Modules\Products\Entities\Product;
-use Illuminate\Database\Eloquent\Model;
+use App\Modules\Products\Database\factories\ColorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -15,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $color_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \App\Modules\Colors\Database\factories\ColorFactory factory(...$parameters)
+ * @method static \App\Modules\Products\Database\factories\ColorFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Color newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Color newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Color query()

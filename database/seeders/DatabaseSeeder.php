@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Modules\Colors\Database\Seeders\ColorsDatabaseSeeder;
+use App\Modules\Products\Database\Seeders\ColorsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\ProductsDatabaseSeeder;
-use App\Modules\Sizes\Database\Seeders\SizesDatabaseSeeder;
+use App\Modules\Products\Database\Seeders\SizesDatabaseSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
