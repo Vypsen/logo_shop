@@ -26,24 +26,28 @@ class ProductsController extends Controller
     /**
      * Show the specified resource.
      *  @param string $slug
-     * @return Responsable
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function show(Request $request)
     {
         $productSlug = $request['product_slug'];
 
-        $product = Product::query()
+        $productQuery = Product::query()
             ->where('slug', $productSlug)
             ->first();
 
-        if($product === null){
+
+        if($productQuery === null){
             abort(404);
         }
 
-        return new FullInfoProductResource(
-            $product
-        );
+        $product = Product::createResponse($productQuery);
+
+        return response()->json([
+            'data' => $product,
+        ]);
+
     }
 
 }

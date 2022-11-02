@@ -6,6 +6,7 @@ use App\Modules\Products\Database\factories\ColorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Modules\Colors\Entities\Color
@@ -31,9 +32,9 @@ class Color extends Model
     protected $table = 'colors';
 
 
-    public function getProduct(): BelongsTo
+    public function product(): BelongsToMany
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     protected static function newFactory()

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('is_sale');
             $table->boolean('is_new');
 
+
             $table->timestamps();
         });
     }

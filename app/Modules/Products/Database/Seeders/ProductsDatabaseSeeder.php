@@ -3,6 +3,7 @@
 namespace App\Modules\Products\Database\Seeders;
 
 use App\Modules\Products\Entities\Color;
+use App\Modules\Products\Entities\Image;
 use App\Modules\Products\Entities\Product;
 use App\Modules\Products\Entities\Size;
 use Faker\Generator;
@@ -28,7 +29,6 @@ class ProductsDatabaseSeeder extends Seeder
         for ($i = 0; $i < random_int(50, 80); ++$i){
 
             $product = new Product();
-
             $product->article_number = $faker->unique()->word;
             $product->name = $faker->word;
             $product->description = $faker->realText();
@@ -36,7 +36,6 @@ class ProductsDatabaseSeeder extends Seeder
             $product->discount_price = $faker->randomFloat(8, 10, 1000000);
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
-
             $product->save();
 
             if($faker->boolean){

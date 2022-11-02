@@ -6,6 +6,7 @@ use App\Modules\Products\Database\factories\SizeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Modules\Sizes\Entities\Size
@@ -28,9 +29,9 @@ class Size extends Model
 {
     use HasFactory;
 
-    public function getProduct(): BelongsTo
+    public function products(): BelongsToMany
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     protected static function newFactory()
