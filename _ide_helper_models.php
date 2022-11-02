@@ -43,11 +43,30 @@ namespace App\Models{
 	class User extends \Eloquent {}
 }
 
-namespace App\Modules\Colors\Entities{
+namespace App\Modules\Products\Entities{
+/**
+ * App\Modules\Products\Entities\Brand
+ *
+ * @property int $id
+ * @property string $brand_name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $products
+ * @property-read int|null $products_count
+ * @method static \App\Modules\Products\Database\factories\BrandFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand whereBrandName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Brand whereUpdatedAt($value)
+ */
+	class Brand extends \Eloquent {}
+}
 
-    use App\Modules\Products\Entities\Color;
-
-    /**
+namespace App\Modules\Products\Entities{
+/**
  * App\Modules\Colors\Entities\Color
  *
  * @property int $id
@@ -63,8 +82,32 @@ namespace App\Modules\Colors\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Color whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Color whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $product
+ * @property-read int|null $product_count
  */
-	class Models extends \Eloquent {}
+	class Color extends \Eloquent {}
+}
+
+namespace App\Modules\Products\Entities{
+/**
+ * App\Modules\Products\Entities\Image
+ *
+ * @property int $id
+ * @property string $path
+ * @property int $product_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Modules\Products\Entities\Product|null $products
+ * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Image query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Image whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Image whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Image wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Image whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Image whereUpdatedAt($value)
+ */
+	class Image extends \Eloquent {}
 }
 
 namespace App\Modules\Products\Entities{
@@ -103,13 +146,16 @@ namespace App\Modules\Products\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Size[] $images
+ * @property int $brand_id
+ * @property-read \App\Modules\Products\Entities\Image|null $brands
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
  * @property-read int|null $images_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereBrandId($value)
  */
 	class Product extends \Eloquent {}
 }
 
-namespace App\Modules\Sizes\Entities{
+namespace App\Modules\Products\Entities{
 /**
  * App\Modules\Sizes\Entities\Size
  *
@@ -118,14 +164,16 @@ namespace App\Modules\Sizes\Entities{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \App\Modules\Products\Database\factories\SizeFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereSizeName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Modules\Products\Entities\Size whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Size newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Size newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Size query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Size whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Size whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Size whereSizeName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Size whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $products
+ * @property-read int|null $products_count
  */
 	class Size extends \Eloquent {}
 }

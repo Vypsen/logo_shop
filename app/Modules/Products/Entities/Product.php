@@ -5,6 +5,7 @@ namespace App\Modules\Products\Entities;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -63,6 +64,7 @@ class Product extends Model
         $colors = Product::find($productQuery->id)->colors;
         $sizes = Product::find($productQuery->id)->sizes;
         $images = Product::find($productQuery->id)->images;
+        $brands = Product::find($productQuery->id)->brands;
 
         return [
             'id' => $productQuery->id,
@@ -74,7 +76,8 @@ class Product extends Model
             'is_new' => $productQuery->is_new,
             'sizes' => $sizes,
             'colors' => $colors,
-            'images' => $images
+            'images' => $images,
+            '$brands' => $brands,
         ];
     }
 
@@ -91,6 +94,11 @@ class Product extends Model
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function brands(): BelongsTo
+    {
+        return $this->belongsTo(Image::class);
     }
 
 }

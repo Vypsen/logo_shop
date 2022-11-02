@@ -24,6 +24,10 @@ return new class extends Migration
             $table->boolean('is_sale');
             $table->boolean('is_new');
 
+            $table->foreignId('brand_id');
+            $table->foreign('brand_id')
+                ->references('id')->on('brands')
+                ->cascadeOnDelete();
 
             $table->timestamps();
         });

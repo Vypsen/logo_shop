@@ -17,10 +17,14 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('color_id');
-            $table->foreign('color_id')->references('id')->on('colors')->cascadeOnDelete();
+            $table->foreign('color_id')
+                ->references('id')->on('colors')
+                ->cascadeOnDelete();
 
             $table->foreignId('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
+            $table->foreign('product_id')
+                ->references('id')->on('products')
+                ->cascadeOnDelete();
 
         });
     }

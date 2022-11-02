@@ -2,6 +2,7 @@
 
 namespace App\Modules\Products\Database\Seeders;
 
+use App\Modules\Products\Entities\Brand;
 use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Image;
 use App\Modules\Products\Entities\Product;
@@ -36,8 +37,11 @@ class ProductsDatabaseSeeder extends Seeder
             $product->discount_price = $faker->randomFloat(8, 10, 1000000);
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
-            $product->save();
 
+            $brand = Brand::inRandomOrder()->first();
+            $brand->products()->save($product);
+
+            $product->save();
             if($faker->boolean){
                 $product
                     ->colors()
@@ -48,6 +52,10 @@ class ProductsDatabaseSeeder extends Seeder
                     ->sizes()
                     ->attach($sizesIds->random(random_int(1, count($sizesIds))));
             }
+
+
+
+
 
         }
 
