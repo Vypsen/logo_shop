@@ -64,7 +64,7 @@ class Product extends Model
         $colors = Product::find($productQuery->id)->colors;
         $sizes = Product::find($productQuery->id)->sizes;
         $images = Product::find($productQuery->id)->images;
-        $brands = Product::find($productQuery->id)->brands;
+        $brand = Product::find($productQuery->id)->brand;
 
         return [
             'id' => $productQuery->id,
@@ -77,7 +77,7 @@ class Product extends Model
             'sizes' => $sizes,
             'colors' => $colors,
             'images' => $images,
-            '$brands' => $brands,
+            'brand' => $brand,
         ];
     }
 
@@ -96,9 +96,9 @@ class Product extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function brands(): BelongsTo
+    public function brand(): BelongsTo
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Brand::class);
     }
 
 }

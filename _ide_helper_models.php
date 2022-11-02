@@ -147,7 +147,7 @@ namespace App\Modules\Products\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
  * @property int $brand_id
- * @property-read \App\Modules\Products\Entities\Image|null $brands
+ * @property-read \App\Modules\Products\Entities\Brand $brand
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
  * @property-read int|null $images_count
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereBrandId($value)
