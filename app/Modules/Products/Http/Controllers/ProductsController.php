@@ -12,29 +12,30 @@ class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @return Responsable
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
         $query = Product::query();
 
+        $products = $query->orderBy('products.id')->paginate(10);
+
         return PreviewProductResource::collection(
-            $query->orderBy('products.id')->paginate(10),
+            $products
         );
     }
 
     /**
      * Show the specified resource.
      *  @param string $slug
-     * @return \Illuminate\Http\JsonResponse
+     * @return FullInfoProductResource
      */
 
-    public function show(Request $request)
+    public function show(string $slug)
     {
-        $productSlug = $request['product_slug'];
 
         $productQuery = Product::query()
-            ->where('slug', $productSlug)
+            ->where('slug', $slug)
             ->first();
 
 
@@ -42,12 +43,10 @@ class ProductsController extends Controller
             abort(404);
         }
 
-        $product = Product::createResponse($productQuery);
 
-        return response()->json([
-            'data' => $product,
-        ]);
-
+        return new FullInfoProductResource(
+            $productQuery
+        );
     }
 
 }

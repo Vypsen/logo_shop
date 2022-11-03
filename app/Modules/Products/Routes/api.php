@@ -15,5 +15,5 @@ use App\Modules\Products\Http\Controllers\ProductsController;
 
 Route::prefix('catalog')->group(function () {
     Route::get('product/list', [ProductsController::class, 'index']);
-    Route::get('product/details', [ProductsController::class, 'show']);
+    Route::get('product/{slug}/details', [ProductsController::class, 'show']);
 });

@@ -17,11 +17,12 @@ class PreviewProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => $this->image,
+            'images' => ImageResource::collection($this->images),
             'price' => $this->price,
             'discount_price' => $this->discount_price,
             'is_sale' => $this->is_sale,
             'is_new' => $this->is_new,
+
         ];
     }
 }

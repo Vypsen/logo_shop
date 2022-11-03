@@ -59,28 +59,6 @@ class Product extends Model
         ];
     }
 
-    public static function createResponse($productQuery)
-    {
-        $colors = Product::find($productQuery->id)->colors;
-        $sizes = Product::find($productQuery->id)->sizes;
-        $images = Product::find($productQuery->id)->images;
-        $brand = Product::find($productQuery->id)->brand;
-
-        return [
-            'id' => $productQuery->id,
-            'name' => $productQuery->name,
-            'image' => $productQuery->image,
-            'price' => $productQuery->price,
-            'discount_price' => $productQuery->discount_price,
-            'is_sale' => $productQuery->is_sale,
-            'is_new' => $productQuery->is_new,
-            'sizes' => $sizes,
-            'colors' => $colors,
-            'images' => $images,
-            'brand' => $brand,
-        ];
-    }
-
     public function colors(): BelongsToMany
     {
         return $this->belongsToMany(Color::class, 'products_colors');

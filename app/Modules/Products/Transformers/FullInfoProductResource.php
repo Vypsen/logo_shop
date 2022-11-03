@@ -2,8 +2,11 @@
 
 namespace App\Modules\Products\Transformers;
 
+use App\Modules\Products\Entities\Brand;
+use App\Modules\Products\Entities\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/** @mixin Product */
 class FullInfoProductResource extends JsonResource
 {
     /**
@@ -24,12 +27,10 @@ class FullInfoProductResource extends JsonResource
             'discount_price' => $this->discount_price,
             'is_sale' => $this->is_sale,
             'is_new' => $this->is_new,
-            'colors' => $this->whenPivotLoaded('products_colors', function (){
-                return $this->colors;
-            }),
-            'sizes' => $this->whenPivotLoaded('products_sizes', function (){
-                return $this->sizes;
-            }),
+            'colors' => ColorResource::collection($this->colors),
+            'sizes' => SizeResource::collection($this->sizes),
+            'images' => ImageResource::collection($this->images),
+            'brand' => BrandResource::make($this->brand),
         ];
     }
 }
