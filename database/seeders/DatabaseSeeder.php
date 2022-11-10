@@ -3,11 +3,16 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Modules\Products\Database\factories\ProductAttributesFactory;
 use App\Modules\Products\Database\Seeders\BrandsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\ColorsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\ImageDatabaseSeeder;
+use App\Modules\Products\Database\Seeders\ProductAttributesSeeder;
+use App\Modules\Products\Database\Seeders\ProductAttributeValuesSeeder;
+use App\Modules\Products\Database\Seeders\ProductCategorySeeder;
 use App\Modules\Products\Database\Seeders\ProductsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\SizesDatabaseSeeder;
+use App\Modules\Products\Entities\ProductCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +28,10 @@ class DatabaseSeeder extends Seeder
             ColorsDatabaseSeeder::class,
             BrandsDatabaseSeeder::class,
             SizesDatabaseSeeder::class,
+            ProductCategorySeeder::class,
+            ProductAttributesSeeder::class,
             ProductsDatabaseSeeder::class,
+            ProductAttributeValuesSeeder::class,
             ImageDatabaseSeeder::class,
         ]);
     }

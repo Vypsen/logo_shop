@@ -27,6 +27,8 @@ class FullInfoProductResource extends JsonResource
             'discount_price' => $this->discount_price,
             'is_sale' => $this->is_sale,
             'is_new' => $this->is_new,
+            'category' => CategoryResource::make($this->category),
+            'attribute' => AttributeValueResource::collection($this->sortedAttributeValues),
             'colors' => ColorResource::collection($this->colors),
             'sizes' => SizeResource::collection($this->sizes),
             'images' => ImageResource::collection($this->images),

@@ -30,7 +30,8 @@ class ImageDatabaseSeeder extends Seeder
             $image->path = $faker->loremFlickr('products/images');
 
             $product = Product::inRandomOrder()->first();
-            $product->images()->save($image);
+            $image->product()->associate($product);
+
             $image->save();
         }
 

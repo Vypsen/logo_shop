@@ -79,4 +79,23 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(ProductCategory::class);
+    }
+
+    public function attributeValues(): HasMany
+    {
+        return $this->hasMany(ProductAttributeValue::class);
+    }
+
+    public function sortedAttributeValues(): HasMany
+    {
+        return $this
+            ->attributeValues()
+            ->join('product_attributes', 'product_attributes.id', '=', 'product_attribute_values.product_attribute_id')
+            ->orderBy('product_attributes.sort_order')
+            ->orderBy('product_attributes.id');
+    }
+
 }

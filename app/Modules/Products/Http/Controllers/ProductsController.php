@@ -27,22 +27,21 @@ class ProductsController extends Controller
 
     /**
      * Show the specified resource.
-     *  @param string $slug
+     * @param Request $request
      * @return FullInfoProductResource
      */
-
-    public function show(string $slug)
+    public function show(Request $request)
     {
+        $slug = $request['slug'];
 
         $productQuery = Product::query()
+            ->with('category', 'sortedAttributeValues.attribute')
             ->where('slug', $slug)
             ->first();
-
 
         if($productQuery === null){
             abort(404);
         }
-
 
         return new FullInfoProductResource(
             $productQuery

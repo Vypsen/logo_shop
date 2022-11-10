@@ -97,7 +97,7 @@ namespace App\Modules\Products\Entities{
  * @property int $product_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Modules\Products\Entities\Product|null $products
+ * @property-read \App\Modules\Products\Entities\Product $product
  * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Image query()
@@ -147,12 +147,97 @@ namespace App\Modules\Products\Entities{
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
  * @property int $brand_id
+ * @property int $category_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $attributeValues
+ * @property-read int|null $attribute_values_count
  * @property-read \App\Modules\Products\Entities\Brand $brand
+ * @property-read \App\Modules\Products\Entities\ProductCategory $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
  * @property-read int|null $images_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $sortedAttributeValues
+ * @property-read int|null $sorted_attribute_values_count
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereBrandId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCategoryId($value)
  */
 	class Product extends \Eloquent {}
+}
+
+namespace App\Modules\Products\Entities{
+/**
+ * App\Modules\Products\Entities\ProductAttribute
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $type
+ * @property int $sort_order
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \App\Modules\Products\Database\factories\ProductAttributesFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttribute whereUpdatedAt($value)
+ */
+	class ProductAttribute extends \Eloquent {}
+}
+
+namespace App\Modules\Products\Entities{
+/**
+ * App\Modules\Products\Entities\ProductAttributeValue
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $value
+ * @property int $product_id
+ * @property int $product_attribute_id
+ * @property-read \App\Modules\Products\Entities\ProductAttribute|null $attribute
+ * @property-read \App\Modules\Products\Entities\Product $product
+ * @method static \App\Modules\Products\Database\factories\ProductAttributeValuesFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereProductAttributeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductAttributeValue whereValue($value)
+ */
+	class ProductAttributeValue extends \Eloquent {}
+}
+
+namespace App\Modules\Products\Entities{
+/**
+ * App\Modules\Products\Entities\ProductCategory
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $parent_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $products
+ * @property-read int|null $products_count
+ * @method static \App\Modules\Products\Database\factories\ProductCategoryFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ */
+	class ProductCategory extends \Eloquent {}
 }
 
 namespace App\Modules\Products\Entities{

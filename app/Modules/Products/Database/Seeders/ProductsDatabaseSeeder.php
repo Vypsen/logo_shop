@@ -6,6 +6,7 @@ use App\Modules\Products\Entities\Brand;
 use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Image;
 use App\Modules\Products\Entities\Product;
+use App\Modules\Products\Entities\ProductCategory;
 use App\Modules\Products\Entities\Size;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
@@ -38,10 +39,13 @@ class ProductsDatabaseSeeder extends Seeder
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
 
+            $category = ProductCategory::inRandomOrder()->first();
             $brand = Brand::inRandomOrder()->first();
-            $brand->products()->save($product);
+            $product->brand()->associate($brand);
+            $product->category()->associate($category);
 
             $product->save();
+
             if($faker->boolean){
                 $product
                     ->colors()
@@ -52,13 +56,6 @@ class ProductsDatabaseSeeder extends Seeder
                     ->sizes()
                     ->attach($sizesIds->random(random_int(1, count($sizesIds))));
             }
-
-
-
-
-
         }
-
-
     }
 }
