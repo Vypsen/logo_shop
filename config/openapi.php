@@ -26,6 +26,10 @@ return [
                     'name' => 'Products',
                     'description' => 'Products logo-shop',
                  ],
+                 [
+                    'name' => 'Categories',
+                    'description' => 'Categories products logo-shop',
+                 ],
 
             ],
 

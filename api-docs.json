@@ -76,6 +76,76 @@
                 }
             }
         },
+        "\/api\/categories\/list": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Display categories.",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#\/components\/schemas\/Category"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "\/api\/categories\/single": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Display Categories through slug.",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "query",
+                        "description": "slug category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#\/components\/schemas\/Category"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
         "\/products": {
             "get": {
                 "tags": [
@@ -360,6 +430,10 @@
         {
             "name": "Products",
             "description": "Products logo-shop"
+        },
+        {
+            "name": "Categories",
+            "description": "Categories products logo-shop"
         }
     ]
 }

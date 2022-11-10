@@ -1,17 +1,18 @@
 <?php
 
-namespace App\OpenApi\Responses\Products;
+namespace App\OpenApi\Responses;
 
+use App\OpenApi\Schemas\CategorySchema;
 use App\OpenApi\Schemas\PaginatorLinksSchema;
 use App\OpenApi\Schemas\PaginatorMetaSchema;
+use App\OpenApi\Schemas\Products\FullInfoProductSchema;
 use App\OpenApi\Schemas\Products\PreviewProductSchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
-use Vyuldashev\LaravelOpenApi\Contracts\Reusable;
 use Vyuldashev\LaravelOpenApi\Factories\ResponseFactory;
 
-class ListProductsResponse extends ResponseFactory implements Reusable
+class ListCategoriesResponse extends ResponseFactory
 {
     public function build(): Response
     {
@@ -20,9 +21,7 @@ class ListProductsResponse extends ResponseFactory implements Reusable
             ->content(
                 MediaType::json()->schema(
                     Schema::object()->properties(
-                        Schema::array('data')->items(PreviewProductSchema::ref()),
-                        PaginatorLinksSchema::ref('links'),
-                        PaginatorMetaSchema::ref('meta'),
+                        Schema::array('data')->items(CategorySchema::ref()),
                     )
                 )
             );
