@@ -22,11 +22,10 @@ return [
             ],
 
             'tags' => [
-
-                // [
-                //    'name' => 'user',
-                //    'description' => 'Application users',
-                // ],
+                 [
+                    'name' => 'Products',
+                    'description' => 'Products logo-shop',
+                 ],
 
             ],
 

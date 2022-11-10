@@ -1,14 +1,14 @@
 <?php
 
-namespace App\OpenApi\Responses\Products;
+namespace App\OpenApi\Responses;
 
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
 use Vyuldashev\LaravelOpenApi\Factories\ResponseFactory;
 
-class FullIInfoProductResponse extends ResponseFactory
+class NotFoundResponse extends ResponseFactory
 {
     public function build(): Response
     {
-        return Response::ok()->description('Successful response');
+        return Response::notFound()->description('Not found');
     }
 }
