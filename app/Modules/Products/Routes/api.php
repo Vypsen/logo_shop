@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Modules\Products\Http\Controllers\ProductsController;
+use App\Modules\Products\Http\Controllers\CategoriesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +15,12 @@ use App\Modules\Products\Http\Controllers\ProductsController;
 */
 
 Route::prefix('catalog')->group(function () {
-    Route::get('product/list', [ProductsController::class, 'index']);
-    Route::get('product/details', [ProductsController::class, 'show']);
+    Route::get('product/list', ProductsController::class . '@index');
+    Route::get('product/details', ProductsController::class . '@show');
+});
+
+
+Route::prefix('categories')->group(function () {
+    Route::get('list', CategoriesController::class . '@index');
+    Route::get('single', CategoriesController::class . '@show');
 });

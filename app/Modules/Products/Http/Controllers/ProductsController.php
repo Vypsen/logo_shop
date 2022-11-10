@@ -6,7 +6,8 @@ use App\Modules\Products\Entities\Product;
 use App\Modules\Products\Transformers\FullInfoProductResource;
 use App\Modules\Products\Transformers\PreviewProductResource;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Support\Responsable;use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Support\Responsable;
+use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
 {
