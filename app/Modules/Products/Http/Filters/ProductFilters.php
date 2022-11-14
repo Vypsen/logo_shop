@@ -95,7 +95,7 @@ class ProductFilters
                         function ( JoinClause $clause) use ($attribute, $key):void
                         {
                             $clause->on("$key.product_id", "=", 'products.id')
-                                ->where("$key.attribute_id", $attribute->id);
+                                ->where("$key.product_attribute_id", $attribute->id);
                         }
                     );
             }

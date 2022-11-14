@@ -33,7 +33,7 @@ class ProductsController extends Controller
     public function index(CatalogRequest $request)
     {
         $requestData = $request->validated();
-        
+
         try {
             $data = Product::findProducts($requestData);
         } catch (Throwable $e) {
@@ -41,7 +41,7 @@ class ProductsController extends Controller
         }
 
         return PreviewProductResource::collection(
-            $data['product_query']->orderBy('id')->paginate(10)->appends([
+            $data['product_query']->orderBy('products.id')->paginate(10)->appends([
                 'category_slug' => $data['key_params']['category_slug'],
                 'search_query' => $data['key_params']['search_query'],
                 'filters' => $data['key_params']['filters'],
