@@ -4,6 +4,7 @@ namespace App\OpenApi\Responses\Products;
 
 use App\OpenApi\Schemas\PaginatorLinksSchema;
 use App\OpenApi\Schemas\PaginatorMetaSchema;
+use App\OpenApi\Schemas\Products\FilterSchema;
 use App\OpenApi\Schemas\Products\PreviewProductSchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
@@ -23,6 +24,9 @@ class ListProductsResponse extends ResponseFactory implements Reusable
                         Schema::array('data')->items(PreviewProductSchema::ref()),
                         PaginatorLinksSchema::ref('links'),
                         PaginatorMetaSchema::ref('meta'),
+                        Schema::array('filters')->items(
+                            FilterSchema::ref()
+                        )
                     )
                 )
             );

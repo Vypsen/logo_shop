@@ -33,8 +33,7 @@ class ProductsController extends Controller
     public function index(CatalogRequest $request)
     {
         $requestData = $request->validated();
-
-        $requestData['slug'] = $requestData['category_slug'] ?? null;
+        
         try {
             $data = Product::findProducts($requestData);
         } catch (Throwable $e) {

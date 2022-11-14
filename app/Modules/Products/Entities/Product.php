@@ -103,7 +103,7 @@ class Product extends Model
 
     public static function findProducts(array $requestData)
     {
-        $slug = $requestData['slug'] ?? null;
+        $slug = $requestData['category_slug'] ?? null;
 
         $categoryQuery = ProductCategory::query()
             ->with('children', 'products');
@@ -119,7 +119,7 @@ class Product extends Model
 
         $appliedFilters = $requestData['filters'] ?? [];
         $filters = ProductFilters::build($productQuery);
-        ProductFilters::apply($productQuery, $appliedFilters);
+        $productQuery = ProductFilters::apply($productQuery, $appliedFilters);
 
         $searchQuery = $requestData['search_query'] ?? null;
         if ($searchQuery) {

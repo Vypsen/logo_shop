@@ -74,7 +74,7 @@ class ProductFilters
 
     }
 
-    public static function apply(Builder $productQuery, array $appliedFilters): void
+    public static function apply(Builder $productQuery, array $appliedFilters)
     {
         $attributeByKey = [];
         foreach (ProductAttribute::get() as $item) {
@@ -100,6 +100,8 @@ class ProductFilters
                     );
             }
         }
+
+        return $productQuery;
     }
 
 }
