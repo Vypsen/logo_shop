@@ -2,9 +2,12 @@
 
 namespace App\Modules\Products\Entities;
 
+use App\Modules\Products\Enums\ProductSortType;
+use App\Modules\Products\Http\Filters\ProductFilters;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -96,6 +99,55 @@ class Product extends Model
             ->join('product_attributes', 'product_attributes.id', '=', 'product_attribute_values.product_attribute_id')
             ->orderBy('product_attributes.sort_order')
             ->orderBy('product_attributes.id');
+    }
+
+    public static function findProducts(array $requestData)
+    {
+        $slug = $requestData['slug'] ?? null;
+
+        $categoryQuery = ProductCategory::query()
+            ->with('children', 'products');
+        if ($slug === null) {
+            $categoryQuery->where('parent_id');
+        } else {
+            $categoryQuery->where('slug', $slug);
+        }
+
+        $category = $categoryQuery->get();
+
+        $productQuery = ProductCategory::getTreeProductBuilder($category);
+
+        $appliedFilters = $requestData['filters'] ?? [];
+        $filters = ProductFilters::build($productQuery);
+        ProductFilters::apply($productQuery, $appliedFilters);
+
+        $searchQuery = $requestData['search_query'] ?? null;
+        if ($searchQuery) {
+            $productQuery->search($searchQuery);
+        }
+
+        $sortMode = $requestData['sort_mode'] ?? null;
+        if ($sortMode === strval(ProductSortType::PRICE_ASC)) {
+            $productQuery->orderBy('price');
+        } else if ($sortMode === strval(ProductSortType::PRICE_DESC)) {
+            $productQuery->orderBy('price', 'desc');
+        }
+        return [
+            'product_query' => $productQuery,
+            'filters' => $filters,
+            'category' => $category,
+            'key_params' => [
+                'category_slug' => $slug,
+                'search_query' => $searchQuery,
+                'filters' => $appliedFilters,
+                'sort_mode' => $sortMode
+            ]
+        ];
+    }
+
+    public function scopeSearch(Builder $builder, string $searchQuery): Builder
+    {
+        return $builder->where('products.name', 'ilike', "%{$searchQuery}%");
     }
 
 }

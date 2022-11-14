@@ -8,6 +8,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /** @mixin Product */
 class PreviewProductResource extends JsonResource
 {
+
+    public static function collection($resource)
+    {
+        return tap(new ListProductCollection($resource), function ($collection) {
+            $collection->collects = __CLASS__;
+        });
+    }
     /**
      * Transform the resource into an array.
      *
