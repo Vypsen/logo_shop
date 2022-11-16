@@ -2,7 +2,6 @@
 
 namespace App\Modules\Products\Transformers;
 
-use App\Modules\Products\Entities\Brand;
 use App\Modules\Products\Entities\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 

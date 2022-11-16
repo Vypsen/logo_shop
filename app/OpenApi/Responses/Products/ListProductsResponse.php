@@ -2,6 +2,8 @@
 
 namespace App\OpenApi\Responses\Products;
 
+use App\Modules\Products\Transformers\CategoryResource;
+use App\OpenApi\Schemas\CategorySchema;
 use App\OpenApi\Schemas\PaginatorLinksSchema;
 use App\OpenApi\Schemas\PaginatorMetaSchema;
 use App\OpenApi\Schemas\Products\FilterSchema;
@@ -26,6 +28,9 @@ class ListProductsResponse extends ResponseFactory implements Reusable
                         PaginatorMetaSchema::ref('meta'),
                         Schema::array('filters')->items(
                             FilterSchema::ref()
+                        ),
+                        Schema::array('category')->items(
+                            CategorySchema::ref()
                         )
                     )
                 )

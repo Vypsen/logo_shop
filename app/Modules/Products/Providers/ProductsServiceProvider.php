@@ -2,8 +2,8 @@
 
 namespace App\Modules\Products\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
 
 class ProductsServiceProvider extends ServiceProvider
 {

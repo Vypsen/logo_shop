@@ -4,11 +4,11 @@ namespace App\Modules\Products\Entities;
 
 use App\Modules\Products\Database\factories\ProductCategoryFactory;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Exception;
 
 class ProductCategory extends Model
 {

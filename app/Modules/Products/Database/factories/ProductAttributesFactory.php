@@ -2,7 +2,6 @@
 
 namespace App\Modules\Products\Database\factories;
 
-use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\ProductAttribute;
 use App\Modules\Products\Enums\ProductAttributeType;
 use Illuminate\Database\Eloquent\Factories\Factory;

@@ -4,7 +4,6 @@ namespace App\Modules\Products\Database\Seeders;
 
 use App\Modules\Products\Entities\Brand;
 use App\Modules\Products\Entities\Color;
-use App\Modules\Products\Entities\Image;
 use App\Modules\Products\Entities\Product;
 use App\Modules\Products\Entities\ProductCategory;
 use App\Modules\Products\Entities\Size;
@@ -46,12 +45,12 @@ class ProductsDatabaseSeeder extends Seeder
 
             $product->save();
 
-            if($faker->boolean){
+            if($faker->boolean(70)){
                 $product
                     ->colors()
                     ->attach($colorsIds->random(random_int(1, count($colorsIds))));
             }
-            if($faker->boolean){
+            if($faker->boolean(70)){
                 $product
                     ->sizes()
                     ->attach($sizesIds->random(random_int(1, count($sizesIds))));

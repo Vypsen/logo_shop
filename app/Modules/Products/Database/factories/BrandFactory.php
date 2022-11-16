@@ -3,7 +3,6 @@
 namespace App\Modules\Products\Database\factories;
 
 use App\Modules\Products\Entities\Brand;
-use App\Modules\Products\Entities\Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BrandFactory extends Factory

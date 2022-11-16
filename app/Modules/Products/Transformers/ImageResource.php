@@ -2,7 +2,6 @@
 
 namespace App\Modules\Products\Transformers;
 
-use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Image;
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -2,9 +2,7 @@
 
 namespace App\Modules\Products\Database\Seeders;
 
-use App\Modules\Products\Entities\ProductAttribute;
 use App\Modules\Products\Entities\ProductCategory;
-use App\Modules\Products\Entities\Size;
 use Illuminate\Database\Seeder;
 
 class ProductCategorySeeder extends Seeder

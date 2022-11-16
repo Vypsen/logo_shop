@@ -3,7 +3,6 @@
 namespace App\Modules\Products\Transformers;
 
 use App\Modules\Products\Entities\Brand;
-use App\Modules\Products\Entities\Color;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin Brand */

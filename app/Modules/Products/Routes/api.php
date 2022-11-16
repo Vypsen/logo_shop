@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
-use App\Modules\Products\Http\Controllers\ProductsController;
 use App\Modules\Products\Http\Controllers\CategoriesController;
+use App\Modules\Products\Http\Controllers\ProductsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes

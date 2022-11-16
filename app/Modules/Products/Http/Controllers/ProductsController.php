@@ -4,9 +4,8 @@ namespace App\Modules\Products\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Products\Entities\Product;
-use App\Modules\Products\Entities\ProductCategory;
-use App\Modules\Products\Http\Filters\ProductFilters;
 use App\Modules\Products\Http\Requests\CatalogRequest;
+use App\Modules\Products\Transformers\CategoryResource;
 use App\Modules\Products\Transformers\FullInfoProductResource;
 use App\Modules\Products\Transformers\PreviewProductResource;
 use App\OpenApi\Parameters\FiltersParameters;
@@ -14,7 +13,6 @@ use App\OpenApi\Parameters\ProductParameters;
 use App\OpenApi\Responses\NotFoundResponse;
 use App\OpenApi\Responses\Products\FullInfoProductResponse;
 use App\OpenApi\Responses\Products\ListProductsResponse;
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Request;
 use Throwable;
 use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
@@ -24,7 +22,7 @@ class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @return \Illuminate\Http\JsonResponse
+     * @return PreviewProductResource|\Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     #[OpenApi\Operation(tags: ['Products'])]
     #[OpenApi\Parameters(factory: FiltersParameters::class)]
@@ -47,7 +45,10 @@ class ProductsController extends Controller
                 'filters' => $data['key_params']['filters'],
                 'sort_mode' => $data['key_params']['sort_mode']
             ])
-        )->additional([$data['filters'], $data['category']]);
+        )->additional([
+            'filters' => $data['filters'],
+            'category' => CategoryResource::collection($data['category'])
+        ]);
     }
 
     /**

@@ -5,7 +5,6 @@ namespace App\Modules\Products\Entities;
 use App\Modules\Products\Database\factories\SizeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
