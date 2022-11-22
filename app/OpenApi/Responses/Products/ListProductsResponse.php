@@ -31,7 +31,8 @@ class ListProductsResponse extends ResponseFactory implements Reusable
                         ),
                         Schema::array('category')->items(
                             CategorySchema::ref()
-                        )
+                        ),
+                        Schema::integer('countProducts'),
                     )
                 )
             );

@@ -40,12 +40,14 @@ class ProductsController extends Controller
 
         return PreviewProductResource::collection(
             $data['product_query']->orderBy('products.id')->paginate(10)->appends([
-                'category_slug' => $data['key_params']['category_slug'],
+                'category_name' => $data['key_params']['category_name'],
+                'article_query' => $data['key_params']['article_query'],
                 'search_query' => $data['key_params']['search_query'],
                 'filters' => $data['key_params']['filters'],
                 'sort_mode' => $data['key_params']['sort_mode']
             ])
         )->additional([
+            'countProducts' => $data['countProducts'],
             'filters' => $data['filters'],
             'category' => CategoryResource::collection($data['category'])
         ]);

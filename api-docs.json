@@ -18,9 +18,17 @@
                 "summary": "Display a listing of the resource.",
                 "parameters": [
                     {
-                        "name": "category slug",
+                        "name": "category name",
                         "in": "query",
-                        "description": "category slug",
+                        "description": "category name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "article_query",
+                        "in": "query",
                         "required": false,
                         "schema": {
                             "type": "string"
@@ -465,6 +473,9 @@
                                     "items": {
                                         "$ref": "#\/components\/schemas\/Category"
                                     }
+                                },
+                                "countProducts": {
+                                    "type": "integer"
                                 }
                             }
                         }

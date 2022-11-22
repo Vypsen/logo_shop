@@ -15,8 +15,12 @@ class FiltersParameters extends ParametersFactory
     {
         return [
             Parameter::query()
-                ->name('category slug')
-                ->description('category slug')
+                ->name('category name')
+                ->description('category name')
+                ->required(false)
+                ->schema(Schema::string()),
+            Parameter::query()
+                ->name('article_query')
                 ->required(false)
                 ->schema(Schema::string()),
             Parameter::query()

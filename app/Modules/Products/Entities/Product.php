@@ -103,14 +103,14 @@ class Product extends Model
 
     public static function findProducts(array $requestData)
     {
-        $slug = $requestData['category_slug'] ?? null;
+        $categoryName = $requestData['category_name'] ?? null;
 
         $categoryQuery = ProductCategory::query()
             ->with('children', 'products');
-        if ($slug === null) {
+        if ($categoryName === null) {
             $categoryQuery->where('parent_id');
         } else {
-            $categoryQuery->where('slug', $slug);
+            $categoryQuery->where('name', $categoryName);
         }
 
         $category = $categoryQuery->get();
@@ -126,18 +126,28 @@ class Product extends Model
             $productQuery->search($searchQuery);
         }
 
+        $articleQuery = $requestData['article_query'] ?? null;
+        if ($articleQuery) {
+            $productQuery->searchForArticle($articleQuery);
+        }
+
         $sortMode = $requestData['sort_mode'] ?? null;
         if ($sortMode === strval(ProductSortType::PRICE_ASC)) {
             $productQuery->orderBy('price');
         } else if ($sortMode === strval(ProductSortType::PRICE_DESC)) {
             $productQuery->orderBy('price', 'desc');
         }
+
+        $countProducts = $productQuery->count();
+
         return [
             'product_query' => $productQuery,
             'filters' => $filters,
             'category' => $category,
+            'countProducts' => $countProducts,
             'key_params' => [
-                'category_slug' => $slug,
+                'category_name' => $categoryName,
+                'article_query' => $articleQuery,
                 'search_query' => $searchQuery,
                 'filters' => $appliedFilters,
                 'sort_mode' => $sortMode
@@ -148,6 +158,11 @@ class Product extends Model
     public function scopeSearch(Builder $builder, string $searchQuery): Builder
     {
         return $builder->where('products.name', 'ilike', "%{$searchQuery}%");
+    }
+
+    public function scopeSearchForArticle(Builder $builder, string $articleQuery): Builder
+    {
+        return $builder->where('products.article_number', 'ilike', "%{$articleQuery}%");
     }
 
 }
