@@ -13,6 +13,9 @@ use App\Modules\Products\Database\Seeders\ProductCategorySeeder;
 use App\Modules\Products\Database\Seeders\ProductsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\SizesDatabaseSeeder;
 use App\Modules\Products\Entities\ProductCategory;
+use App\Modules\Users\Database\Seeders\PhoneNumberDatabaseSeeder;
+use App\Modules\Users\Database\Seeders\UsersDatabaseSeeder;
+use Faker\Provider\en_PH\PhoneNumber;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,14 +28,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ColorsDatabaseSeeder::class,
-            BrandsDatabaseSeeder::class,
-            SizesDatabaseSeeder::class,
-            ProductCategorySeeder::class,
-            ProductAttributesSeeder::class,
-            ProductsDatabaseSeeder::class,
-            ProductAttributeValuesSeeder::class,
-            ImageDatabaseSeeder::class,
+//            ColorsDatabaseSeeder::class,
+//            BrandsDatabaseSeeder::class,
+//            SizesDatabaseSeeder::class,
+//            ProductCategorySeeder::class,
+//            ProductAttributesSeeder::class,
+//            ProductsDatabaseSeeder::class,
+//            ProductAttributeValuesSeeder::class,
+//            ImageDatabaseSeeder::class,
+            UsersDatabaseSeeder::class,
+            PhoneNumberDatabaseSeeder::class,
         ]);
     }
 }

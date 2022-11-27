@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f85cf48afd4472a276b8e8cd0c59bbf2",
+    "content-hash": "bbd404726834255b803ff36a14762f3a",
     "packages": [
         {
             "name": "brick/math",
@@ -6419,6 +6419,55 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "zelenin/smsru",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zelenin/sms_ru.git",
+                "reference": "b16efe92588fe74796332de5d20aa345b4437819"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zelenin/sms_ru/zipball/b16efe92588fe74796332de5d20aa345b4437819",
+                "reference": "b16efe92588fe74796332de5d20aa345b4437819",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6 || ~7",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zelenin\\SmsRu\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aleksandr Zelenin",
+                    "email": "aleksandr@zelenin.me",
+                    "homepage": "http://zelenin.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP-класс для работы с api сервиса [sms.ru](http://sms.ru)",
+            "homepage": "https://github.com/zelenin/sms_ru",
+            "keywords": [
+                "api",
+                "sms",
+                "sms.ru"
+            ],
+            "support": {
+                "issues": "https://github.com/zelenin/sms_ru/issues",
+                "source": "https://github.com/zelenin/sms_ru"
+            },
+            "time": "2021-07-05T14:28:45+00:00"
         }
     ],
     "packages-dev": [

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Users\Entities;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,7 +23,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
- * @method static \Database\Factories\UserFactory factory(...$parameters)
+ * @method static \App\Modules\Users\Database\factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
@@ -36,6 +36,9 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property bool $is_admin
+ * @property-read \App\Modules\Users\Entities\PhoneNumber|null $phone
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsAdmin($value)
  */
 class User extends Authenticatable
 {
@@ -49,7 +52,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
     ];
 
     /**
@@ -58,7 +60,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -70,4 +71,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function phone()
+    {
+        return $this->hasOne(PhoneNumber::class);
+    }
+
+    public static function createUser(string $phone)
+    {
+        $user = new self();
+        $user->save();
+        $user->phone()->create(['number' => $phone]);
+
+        return $user;
+    }
 }
