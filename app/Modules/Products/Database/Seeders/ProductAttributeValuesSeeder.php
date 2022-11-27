@@ -29,7 +29,7 @@ class ProductAttributeValuesSeeder extends Seeder
         $attributeIdsByCategoryId = [];
 
         foreach ($categoryIds as $categoryId) {
-            $attributeIdsByCategoryId[$categoryId] = $faker->randomElements($attributes, rand(1,3));
+            $attributeIdsByCategoryId[$categoryId] = $faker->randomElements($attributes, rand(3,7));
         }
 
         foreach ($products as $product) {

@@ -27,7 +27,7 @@ class ProductsDatabaseSeeder extends Seeder
         $colorsIds = Color::query()->get('id');
         $sizesIds = Size::query()->get('id');
 
-        for ($i = 0; $i < random_int(50, 80); ++$i){
+        for ($i = 0; $i < random_int(20, 50); ++$i){
 
             $product = new Product();
             $product->article_number = $faker->unique()->word;

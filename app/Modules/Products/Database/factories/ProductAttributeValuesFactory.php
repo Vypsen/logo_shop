@@ -39,7 +39,7 @@ class ProductAttributeValuesFactory extends Factory
     {
         switch ($attribute->type) {
             case ProductAttributeType::STRING:
-                $value = $this->faker->realTextBetween(20, 500);
+                $value = $this->faker->realTextBetween(5, 20);
                 break;
             case ProductAttributeType::NUMERIC:
                 $value = random_int(1, 1000);

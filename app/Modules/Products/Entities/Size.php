@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Size whereSizeName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Size whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $products
+ * @property-read int|null $products_count
  */
 class Size extends Model
 {

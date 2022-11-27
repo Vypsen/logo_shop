@@ -47,6 +47,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Product withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
+ * @property int $brand_id
+ * @property int $category_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $attributeValues
+ * @property-read int|null $attribute_values_count
+ * @property-read \App\Modules\Products\Entities\Brand $brand
+ * @property-read \App\Modules\Products\Entities\ProductCategory $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
+ * @property-read int|null $images_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $sortedAttributeValues
+ * @property-read int|null $sorted_attribute_values_count
+ * @method static Builder|Product search(string $searchQuery)
+ * @method static Builder|Product searchForArticle(string $articleQuery)
+ * @method static Builder|Product whereBrandId($value)
+ * @method static Builder|Product whereCategoryId($value)
  */
 
 class Product extends Model
