@@ -2,10 +2,9 @@
 
 namespace App\OpenApi\Responses\Products;
 
-use App\Modules\Products\Transformers\CategoryResource;
-use App\OpenApi\Schemas\CategorySchema;
 use App\OpenApi\Schemas\PaginatorLinksSchema;
 use App\OpenApi\Schemas\PaginatorMetaSchema;
+use App\OpenApi\Schemas\Products\CategorySchema;
 use App\OpenApi\Schemas\Products\FilterSchema;
 use App\OpenApi\Schemas\Products\PreviewProductSchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;

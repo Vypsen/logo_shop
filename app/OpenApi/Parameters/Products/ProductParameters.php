@@ -1,12 +1,12 @@
 <?php
 
-namespace App\OpenApi\Parameters;
+namespace App\OpenApi\Parameters\Products;
 
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Parameter;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
 use Vyuldashev\LaravelOpenApi\Factories\ParametersFactory;
 
-class CategoryParameters extends ParametersFactory
+class ProductParameters extends ParametersFactory
 {
     /**
      * @return Parameter[]
@@ -17,9 +17,10 @@ class CategoryParameters extends ParametersFactory
 
             Parameter::query()
                 ->name('slug')
-                ->description('slug category')
+                ->description('slug product')
                 ->required(true)
                 ->schema(Schema::string()),
+
         ];
     }
 }

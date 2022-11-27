@@ -1,8 +1,8 @@
 <?php
 
-namespace App\OpenApi\Responses;
+namespace App\OpenApi\Responses\Products;
 
-use App\OpenApi\Schemas\CategorySchema;
+use App\OpenApi\Schemas\Products\CategorySchema;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\MediaType;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Response;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;

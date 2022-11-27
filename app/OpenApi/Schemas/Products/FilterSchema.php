@@ -2,7 +2,6 @@
 
 namespace App\OpenApi\Schemas\Products;
 
-use App\OpenApi\Schemas\CategorySchema;
 use GoldSpecDigital\ObjectOrientedOAS\Contracts\SchemaContract;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\AllOf;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\AnyOf;

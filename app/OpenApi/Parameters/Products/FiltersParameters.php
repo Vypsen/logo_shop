@@ -1,6 +1,6 @@
 <?php
 
-namespace App\OpenApi\Parameters;
+namespace App\OpenApi\Parameters\Products;
 
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Parameter;
 use GoldSpecDigital\ObjectOrientedOAS\Objects\Schema;
