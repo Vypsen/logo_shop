@@ -47,7 +47,7 @@ class FullInfoProductSchema extends SchemaFactory implements Reusable
                 Schema::array('size')->items(
                     Schema::object()->properties(
                         Schema::string('id'),
-                        Schema::string('color_name')
+                        Schema::string('size_name')
                     )
                 ),
                 Schema::array('images')->items(
