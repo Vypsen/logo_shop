@@ -6,16 +6,34 @@ use App\Modules\Users\Entities\PhoneNumber;
 use App\Modules\Users\Entities\User;
 use App\Modules\Users\Http\Requests\CodeFailRequest;
 use App\Modules\Users\Http\Requests\PhoneFailRequest;
-use App\Modules\Users\Http\Requests\PhoneRequest;
-use App\Modules\Users\Http\Requests\UserCodeRequest;
-use App\Modules\Users\Http\Requests\UserRequest;
 use App\Modules\Users\Transformers\UserResource;
+use App\OpenApi\Parameters\User\CodeParameters;
+use App\OpenApi\Parameters\User\PhoneParameters;
+use App\OpenApi\Responses\FailedValidationResponse;
+use App\OpenApi\Responses\User\LogoutUserResponse;
+use App\OpenApi\Responses\User\SendSMSResponse;
+use App\OpenApi\Responses\User\UserResponse;
+use App\OpenApi\Responses\User\UserTokenResponse;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Throwable;
 use Illuminate\Routing\Controller;
+use Throwable;
+use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
+
+#[OpenApi\PathItem]
 class AuthController extends Controller
 {
+    /**
+     * create sms code
+     * @return JsonResponse
+     * @return Responsable
+     */
+    #[OpenApi\Operation(tags: ['Auth'], method: 'POST')]
+    #[OpenApi\Parameters(factory: PhoneParameters::class)]
+    #[OpenApi\Response(factory: SendSMSResponse::class, statusCode: 200)]
+    #[OpenApi\Response(factory: FailedValidationResponse::class, statusCode: 422)]
     public function createVerifyCode(PhoneFailRequest $request)
     {
         $requestData = $request->validated();
@@ -28,9 +46,18 @@ class AuthController extends Controller
         }
 
         session(['sms_code' => $smsCode[0], 'phone' => $phone]);
-        return response()->json(['Код успешно отправлен пользователю']);
+        return response()->json(['sms code sent successfully']);
     }
 
+    /**
+     * check user code
+     * @return JsonResponse
+     * @return Responsable
+     */
+    #[OpenApi\Operation(tags: ['Auth'], method: 'POST')]
+    #[OpenApi\Parameters(factory: CodeParameters::class)]
+    #[OpenApi\Response(factory: UserTokenResponse::class, statusCode: 200)]
+    #[OpenApi\Response(factory: FailedValidationResponse::class, statusCode: 422)]
     public function checkSmsCode(CodeFailRequest $request)
     {
         $data = $request->validated();
@@ -63,6 +90,13 @@ class AuthController extends Controller
         return response()->json(['user_code' => 'incorrect code' ], 403);
     }
 
+    /**
+     * logout user
+     * @return JsonResponse
+     * @return Responsable
+     */
+    #[OpenApi\Operation(security: 'BearerTokenSecurityScheme', tags: ['Auth'], method: 'POST')]
+    #[OpenApi\Response(factory: LogoutUserResponse::class, statusCode: 200)]
     public function logout(Request $request)
     {
         $user = $request->user();
@@ -71,6 +105,13 @@ class AuthController extends Controller
         return response()->json(['Successfull logout' => $user]);
     }
 
+    /**
+     * get user
+     * @return UserResource
+     * @return Responsable
+     */
+    #[OpenApi\Operation(security: 'BearerTokenSecurityScheme', tags: ['Auth'], method: 'GET')]
+    #[OpenApi\Response(factory: UserResponse::class, statusCode: 200)]
     public function getUser(Request $request)
     {
         return new UserResource($request->user());

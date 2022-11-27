@@ -22,19 +22,26 @@ return [
             ],
 
             'tags' => [
-                 [
-                    'name' => 'Products',
-                    'description' => 'Products logo-shop',
-                 ],
-                 [
-                    'name' => 'Categories',
-                    'description' => 'Categories products logo-shop',
-                 ],
+
+                [
+                   'name' => 'Products',
+                   'description' => 'Products logo-shop',
+                ],
+                [
+                   'name' => 'Categories',
+                   'description' => 'Categories products logo-shop',
+                ],
+                [
+                    'name' => 'Auth',
+                    'description' => 'Auth for phone',
+                ],
 
             ],
 
             'security' => [
                 // GoldSpecDigital\ObjectOrientedOAS\Objects\SecurityRequirement::create()->securityScheme('JWT'),
+
+                GoldSpecDigital\ObjectOrientedOAS\Objects\SecurityRequirement::create()->securityScheme('BearerTokenSecurityScheme'),
             ],
 
             // Non standard attributes used by code/doc generation tools can be added here

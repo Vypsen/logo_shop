@@ -28,14 +28,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-//            ColorsDatabaseSeeder::class,
-//            BrandsDatabaseSeeder::class,
-//            SizesDatabaseSeeder::class,
-//            ProductCategorySeeder::class,
-//            ProductAttributesSeeder::class,
-//            ProductsDatabaseSeeder::class,
-//            ProductAttributeValuesSeeder::class,
-//            ImageDatabaseSeeder::class,
+            ColorsDatabaseSeeder::class,
+            BrandsDatabaseSeeder::class,
+            SizesDatabaseSeeder::class,
+            ProductCategorySeeder::class,
+            ProductAttributesSeeder::class,
+            ProductsDatabaseSeeder::class,
+            ProductAttributeValuesSeeder::class,
+            ImageDatabaseSeeder::class,
             UsersDatabaseSeeder::class,
             PhoneNumberDatabaseSeeder::class,
         ]);

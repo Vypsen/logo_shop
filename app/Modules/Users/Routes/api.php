@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Modules\Users\Http\Controllers\AuthController;
 
 /*
@@ -21,5 +20,5 @@ Route::prefix('auth')->middleware('api-session')->group(function () {
 
 Route::prefix('user')->middleware('auth:sanctum')->group(function () {
     Route::post('logout', AuthController::class . '@logout');
-    Route::post('user', AuthController::class . '@getUser');
+    Route::get('user', AuthController::class . '@getUser');
 });

@@ -7,7 +7,6 @@ use Zelenin\SmsRu\Api;
 use Zelenin\SmsRu\Auth\ApiIdAuth;
 use Zelenin\SmsRu\Client\Client;
 use Zelenin\SmsRu\Entity\Sms;
-use Zelenin\SmsRu\Entity\SmsPool;
 
 /**
  * App\Modules\Users\Entities\PhoneNumber

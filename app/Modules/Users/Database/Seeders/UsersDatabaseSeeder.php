@@ -2,7 +2,6 @@
 
 namespace App\Modules\Users\Database\Seeders;
 
-use App\Modules\Users\Entities\PhoneNumber;
 use App\Modules\Users\Entities\User;
 use Faker\Generator;
 use Illuminate\Database\Seeder;

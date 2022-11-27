@@ -4,6 +4,7 @@ namespace App\Modules\Users\Transformers;
 
 use App\Modules\Users\Entities\User;
 use Illuminate\Http\Resources\Json\JsonResource;
+
 /** @mixin User */
 class UserResource extends JsonResource
 {

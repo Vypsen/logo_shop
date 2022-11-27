@@ -2,9 +2,7 @@
 
 namespace App\Modules\Users\Http\Requests;
 
-use App\Modules\Products\Enums\ProductSortType;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class UserCodeRequest extends FormRequest
 {

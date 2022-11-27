@@ -184,27 +184,123 @@
                     }
                 }
             }
+        },
+        "\/api\/auth\/sendSms": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "create sms code",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "phone user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "+78005553535"
+                    },
+                    {
+                        "name": "policy",
+                        "in": "query",
+                        "description": "Terms of use",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "sms code sent successfully"
+                    },
+                    "422": {
+                        "$ref": "#\/components\/responses\/ErrorValidation"
+                    }
+                }
+            }
+        },
+        "\/api\/auth\/checkSmsCode": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "check user code",
+                "parameters": [
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "description": "user code for auth",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "123456"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#\/components\/responses\/User Token"
+                    },
+                    "422": {
+                        "$ref": "#\/components\/responses\/ErrorValidation"
+                    }
+                }
+            }
+        },
+        "\/api\/user\/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "logout user",
+                "responses": {
+                    "200": {
+                        "description": "logout success"
+                    }
+                },
+                "security": [
+                    {
+                        "BearerTokenSecurityScheme": []
+                    }
+                ]
+            }
+        },
+        "\/api\/user\/user": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "get user",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#\/components\/schemas\/User"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "BearerTokenSecurityScheme": []
+                    }
+                ]
+            }
         }
     },
     "components": {
         "schemas": {
-            "Category": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "slug": {
-                        "type": "string"
-                    },
-                    "parent_id": {
-                        "type": "string"
-                    }
-                }
-            },
             "PaginatorLinks": {
                 "type": "object",
                 "properties": {
@@ -265,6 +361,23 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "Category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "parent_id": {
+                        "type": "string"
                     }
                 }
             },
@@ -440,9 +553,41 @@
                         }
                     }
                 }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                }
             }
         },
         "responses": {
+            "ErrorValidation": {
+                "description": "Validation errors",
+                "content": {
+                    "application\/json": {
+                        "schema": {
+                            "type": "array",
+                            "example": {
+                                "name": [
+                                    "Something is wrong with this field!"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
             "": {
                 "description": "Successful response",
                 "content": {
@@ -481,9 +626,33 @@
                         }
                     }
                 }
+            },
+            "User Token": {
+                "description": "User Token",
+                "content": {
+                    "application\/json": {
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "token": "token_string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "BearerTokenSecurityScheme": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     },
+    "security": [
+        {
+            "BearerTokenSecurityScheme": []
+        }
+    ],
     "tags": [
         {
             "name": "Products",
@@ -492,6 +661,10 @@
         {
             "name": "Categories",
             "description": "Categories products logo-shop"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth for phone"
         }
     ]
 }

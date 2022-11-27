@@ -2,10 +2,8 @@
 
 namespace App\Modules\Users\Http\Requests;
 
-use App\Modules\Products\Enums\ProductSortType;
 use App\Modules\Users\Rules\PhoneNumberRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class PhoneRequest extends FormRequest
 {
