@@ -2,10 +2,10 @@
 
 namespace App\Modules\Products\Transformers;
 
-use App\Modules\Products\Entities\Image;
+use App\Modules\Products\Entities\ImageProducts;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin Image */
+/** @mixin ImageProducts */
 class ImageResource extends JsonResource
 {
     /**

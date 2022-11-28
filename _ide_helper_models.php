@@ -98,14 +98,14 @@ namespace App\Modules\Products\Entities{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Modules\Products\Entities\Product $product
- * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Image query()
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image wherePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereProductId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereUpdatedAt($value)
  */
 	class Image extends \Eloquent {}
 }
@@ -152,7 +152,7 @@ namespace App\Modules\Products\Entities{
  * @property-read int|null $attribute_values_count
  * @property-read \App\Modules\Products\Entities\Brand $brand
  * @property-read \App\Modules\Products\Entities\ProductCategory $category
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ImageProducts[] $images
  * @property-read int|null $images_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $sortedAttributeValues
  * @property-read int|null $sorted_attribute_values_count

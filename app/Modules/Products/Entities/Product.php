@@ -53,7 +53,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read int|null $attribute_values_count
  * @property-read \App\Modules\Products\Entities\Brand $brand
  * @property-read \App\Modules\Products\Entities\ProductCategory $category
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Image[] $images
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ImageProducts[] $images
  * @property-read int|null $images_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\ProductAttributeValue[] $sortedAttributeValues
  * @property-read int|null $sorted_attribute_values_count
@@ -61,6 +61,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder|Product searchForArticle(string $articleQuery)
  * @method static Builder|Product whereBrandId($value)
  * @method static Builder|Product whereCategoryId($value)
+ * @property string $name_on_site
+ * @property bool $is_show
+ * @method static Builder|Product whereIsShow($value)
+ * @method static Builder|Product whereNameOnSite($value)
  */
 
 class Product extends Model
@@ -88,7 +92,7 @@ class Product extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(ImageProducts::class);
     }
 
     public function brand(): BelongsTo
@@ -129,7 +133,8 @@ class Product extends Model
 
         $category = $categoryQuery->get();
 
-        $productQuery = ProductCategory::getTreeProductBuilder($category);
+        $productQuery = ProductCategory::getTreeProductBuilder($category)
+            ->where('is_show', true);
 
         $appliedFilters = $requestData['filters'] ?? [];
         $filters = ProductFilters::build($productQuery);

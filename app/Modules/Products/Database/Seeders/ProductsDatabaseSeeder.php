@@ -32,11 +32,13 @@ class ProductsDatabaseSeeder extends Seeder
             $product = new Product();
             $product->article_number = $faker->unique()->word;
             $product->name = $faker->word;
+            $product->name_on_site = $product->name;
             $product->description = $faker->realText();
             $product->price = $faker->randomFloat(2, 10, 1000000);
             $product->discount_price = $faker->randomFloat(2, 10, 1000000);
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
+            $product->is_show = $faker->boolean(70);
 
             $category = ProductCategory::inRandomOrder()->first();
             $brand = Brand::inRandomOrder()->first();

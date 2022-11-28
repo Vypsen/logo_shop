@@ -378,6 +378,20 @@
                     },
                     "parent_id": {
                         "type": "string"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "path": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -481,7 +495,7 @@
                                 "id": {
                                     "type": "string"
                                 },
-                                "color_name": {
+                                "size_name": {
                                     "type": "string"
                                 }
                             }

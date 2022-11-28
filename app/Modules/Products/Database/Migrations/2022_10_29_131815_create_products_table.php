@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('article_number');
             $table->string('name');
+            $table->string('name_on_site');
             $table->string('slug')->unique();
             $table->string('description');
             $table->unsignedDouble('price');
             $table->unsignedDouble('discount_price');
             $table->boolean('is_sale');
             $table->boolean('is_new');
+            $table->boolean('is_show');
 
             $table->foreignId('brand_id');
             $table->foreign('brand_id')

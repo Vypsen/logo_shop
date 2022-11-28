@@ -3,5 +3,6 @@
     "Colors": true,
     "Sizes": true,
     "Images": true,
-    "Users": true
+    "Users": true,
+    "MainPage": true
 }

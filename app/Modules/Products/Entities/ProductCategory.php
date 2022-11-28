@@ -36,6 +36,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ProductCategory withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  * @mixin \Eloquent
+ * @property-read Collection|\App\Modules\Products\Entities\ImageCategory[] $images
+ * @property-read int|null $images_count
  */
 class ProductCategory extends Model
 {
@@ -49,6 +51,7 @@ class ProductCategory extends Model
             ]
         ];
     }
+
     public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'category_id');
@@ -57,6 +60,11 @@ class ProductCategory extends Model
     public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id');
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ImageCategory::class, 'category_id');
     }
 
     public static function getTreeProductBuilder(Collection $categories)
@@ -87,6 +95,4 @@ class ProductCategory extends Model
     {
         return ProductCategoryFactory::new();
     }
-
-
 }

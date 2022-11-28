@@ -6,7 +6,8 @@ namespace Database\Seeders;
 use App\Modules\Products\Database\factories\ProductAttributesFactory;
 use App\Modules\Products\Database\Seeders\BrandsDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\ColorsDatabaseSeeder;
-use App\Modules\Products\Database\Seeders\ImageDatabaseSeeder;
+use App\Modules\Products\Database\Seeders\ImageCategoryDatabaseSeeder;
+use App\Modules\Products\Database\Seeders\ImageProductDatabaseSeeder;
 use App\Modules\Products\Database\Seeders\ProductAttributesSeeder;
 use App\Modules\Products\Database\Seeders\ProductAttributeValuesSeeder;
 use App\Modules\Products\Database\Seeders\ProductCategorySeeder;
@@ -35,9 +36,10 @@ class DatabaseSeeder extends Seeder
             ProductAttributesSeeder::class,
             ProductsDatabaseSeeder::class,
             ProductAttributeValuesSeeder::class,
-            ImageDatabaseSeeder::class,
+            ImageProductDatabaseSeeder::class,
             UsersDatabaseSeeder::class,
             PhoneNumberDatabaseSeeder::class,
+            ImageCategoryDatabaseSeeder::class,
         ]);
     }
 }

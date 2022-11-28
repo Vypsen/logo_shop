@@ -16,21 +16,21 @@ use Illuminate\Support\Facades\Storage;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Modules\Products\Entities\Product $product
- * @method static \Illuminate\Database\Eloquent\Builder|Image newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Image newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Image query()
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image wherePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereProductId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Image whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts wherePath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ImageProducts whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Image extends Model
+class ImageProducts extends Model
 {
     use HasFactory;
 
-    protected $table = 'images';
+    protected $table = 'product_images';
 
 
     public function product(): BelongsTo
