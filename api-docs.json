@@ -10,6 +10,34 @@
         }
     ],
     "paths": {
+        "\/api\/main_page": {
+            "get": {
+                "tags": [
+                    "MainPage"
+                ],
+                "summary": "get main page info",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#\/components\/schemas\/MainPage"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
         "\/api\/catalog\/product\/list": {
             "get": {
                 "tags": [
@@ -301,6 +329,40 @@
     },
     "components": {
         "schemas": {
+            "MainPage": {
+                "type": "object",
+                "properties": {
+                    "landing_slide": {
+                        "type": "object",
+                        "properties": {
+                            "landing_image": {
+                                "type": "string"
+                            },
+                            "subtitle": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/Category"
+                        }
+                    },
+                    "new_products": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/PreviewProduct"
+                        }
+                    },
+                    "sale_products": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/PreviewProduct"
+                        }
+                    }
+                }
+            },
             "PaginatorLinks": {
                 "type": "object",
                 "properties": {
@@ -379,17 +441,14 @@
                     "parent_id": {
                         "type": "string"
                     },
-                    "images": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "id": {
-                                    "type": "string"
-                                },
-                                "path": {
-                                    "type": "string"
-                                }
+                    "image": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
                             }
                         }
                     }
@@ -679,6 +738,10 @@
         {
             "name": "Auth",
             "description": "Auth for phone"
+        },
+        {
+            "name": "MainPage",
+            "description": "MainPage info"
         }
     ]
 }

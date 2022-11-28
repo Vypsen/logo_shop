@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
 
-
 /**
  * App\Modules\Products\Entities\ImageCategory
  *

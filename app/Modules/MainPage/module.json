@@ -1,0 +1,11 @@
+{
+    "name": "MainPage",
+    "alias": "mainpage",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Modules\\MainPage\\Providers\\MainPageServiceProvider"
+    ],
+    "files": []
+}

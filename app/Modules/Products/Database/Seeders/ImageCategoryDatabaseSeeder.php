@@ -3,10 +3,7 @@
 namespace App\Modules\Products\Database\Seeders;
 
 use App\Modules\Products\Entities\ImageCategory;
-use App\Modules\Products\Entities\ImageProducts;
-use App\Modules\Products\Entities\Product;
 use App\Modules\Products\Entities\ProductCategory;
-use App\Modules\Users\Entities\User;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 

@@ -24,11 +24,9 @@ class CategorySchema extends SchemaFactory implements Reusable
                 Schema::string('name')->default(null),
                 Schema::string('slug')->default(null),
                 Schema::string('parent_id')->default(null),
-                Schema::array('images')->items(
-                    Schema::object()->properties(
+                Schema::object('image')->properties(
                         Schema::string('id'),
                         Schema::string('path')
-                    )
                 ),
             );
     }

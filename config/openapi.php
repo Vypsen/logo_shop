@@ -35,7 +35,10 @@ return [
                     'name' => 'Auth',
                     'description' => 'Auth for phone',
                 ],
-
+                [
+                    'name' => 'MainPage',
+                    'description' => 'MainPage info',
+                ],
             ],
 
             'security' => [
