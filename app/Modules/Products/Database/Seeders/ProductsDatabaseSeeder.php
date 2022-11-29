@@ -47,11 +47,10 @@ class ProductsDatabaseSeeder extends Seeder
 
             $product->save();
 
-            if($faker->boolean(70)){
-                $product
-                    ->colors()
-                    ->attach($colorsIds->random(random_int(1, count($colorsIds))));
-            }
+            $product
+                ->colors()
+                ->attach($colorsIds->random(random_int(1, count($colorsIds))));
+
             if($faker->boolean(70)){
                 $product
                     ->sizes()
