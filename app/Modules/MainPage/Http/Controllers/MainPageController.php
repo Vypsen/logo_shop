@@ -46,7 +46,8 @@ class MainPageController extends Controller
             ->get();
 
         return response()->json([
-            'landing_slide ' =>
+            'data' => [
+                'landing_slide ' =>
                 [
                     'landing_image' => $landingImage,
                     'subtitle' => $subtitle,
@@ -54,6 +55,6 @@ class MainPageController extends Controller
             'categories' => CategoryResource::collection($categories),
             'new_products' => PreviewProductResource::collection($newProducts),
             'sale_products' => PreviewProductResource::collection($saleProducts),
-        ]);
+        ]]);
     }
 }
