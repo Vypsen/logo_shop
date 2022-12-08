@@ -1,0 +1,195 @@
+.cellar {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    /* top: 2208px; */
+    width: 1440px;
+    height: 383px;
+    /* Proto/06 */
+    padding-left: 96px;
+    padding-top: 64px;
+    background: #515562;
+}
+
+.cellarContentWrapper {
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    gap: 116px;
+}
+
+.lineBottomfloor {
+    width: 1248px;
+    height: 0px;
+    left: 96px;
+    top: 321px;
+
+    /* Proto/05 */
+
+    border: 1px solid #616575;
+}
+
+.contactUsBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 23px;
+    gap: 10px;
+
+    width: 178px;
+    height: 40px;
+
+    /* Proto/05 */
+
+    background: #616575;
+}
+
+.underLogoBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 32px;
+    width: 190px;
+    gap: 24px;
+}
+
+.catalogFooterBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 22px;
+    margin-left: 32px;
+    gap: 24px;
+
+    width: 292px;
+    height: 123px;
+    left: 469px;
+    bottom: 141px;
+}
+
+.catalogFooterBox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 48px;
+}
+
+.catalogFooterBoxLastColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    width: 292px;
+    height: 104px;
+}
+
+.iconFooterLastColumn {
+    display: flex;
+    gap: 12px;
+}
+
+.phoneTextStyle {
+    width: 131px;
+    height: 17px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+
+    text-decoration-line: underline;
+
+    color: #F7F7FC;
+}
+
+.mailTextStyle {
+    width: 82px;
+    height: 15px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+
+    text-decoration-line: underline;
+
+    /* Proto/03 */
+
+    color: #CDCFD6;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.listInBox {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+
+    width: 120px;
+    height: 104px;
+}
+
+.listInBoxUnderLogo {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+
+    width: 196px;
+    height: 104px;
+}
+
+.main_text_style {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+
+    text-transform: uppercase;
+
+    /* Proto/01 */
+
+    color: #FFFFFF;
+}
+
+.sub_text_style {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+    text-decoration-line: underline;
+    text-transform: capitalize;
+
+    /* Proto/04 */
+
+    color: #9CA0AB;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

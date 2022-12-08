@@ -1,0 +1,16 @@
+.squarePlate {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 100px;
+    gap: 10px;
+
+    width: 224px;
+    height: 224px;
+
+    /* Proto/02 */
+
+    background: #F7F7FC;
+
+    /* Inside auto layout */
+}

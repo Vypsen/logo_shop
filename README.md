@@ -15,5 +15,8 @@ You need to have PHP version **8.0** or above and composer and docker.
 
 
 #### Frontend
-1. 
+1. Delete file package-lock.json
+2. Install Node.js (https://nodejs.org/en/) [LTS version recommended]
+3. Run command 'npx install' from front-end root derictory 
+4. Run command 'npm start'
 

@@ -1,0 +1,13 @@
+.vetricalPlate {
+    width: 288px;
+    height: 407px;
+
+    background: #F7F7FC;
+}
+
+.verticalPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

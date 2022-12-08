@@ -1,0 +1,13 @@
+.smallPlate {
+    width: 394px;
+    height: 212px;
+
+    background: #F7F7FC;
+}
+
+.smallPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

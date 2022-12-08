@@ -1,0 +1,28 @@
+.catalogModalWindow {
+    position: absolute;
+    top: 136px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 3791px;
+    display: none;
+
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.5)
+}
+
+.catalogModalWindowContent {
+    padding: 56px 0 0 96px;
+    width: 1440px;
+    height: 539px;
+    background: rgb(255, 255, 255);
+    min-width: 250px;
+    position: absolute;
+}
+
+.catalogModalWindow.active {
+    display: flex;
+    justify-content: center;
+    opacity: 100%;
+    z-index: 99999;
+}

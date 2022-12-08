@@ -1,0 +1,14 @@
+.bigPlate {
+    width: 608px;
+    height: 288px;
+
+    background: #F7F7FC;
+}
+
+.bigPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

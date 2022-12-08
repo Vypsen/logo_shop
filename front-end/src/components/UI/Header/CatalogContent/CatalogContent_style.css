@@ -1,0 +1,75 @@
+.catalogNavbarContentWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 116px;
+}
+
+.catalogNavbarListWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.categoriesNavbarWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+
+    list-style-type: none;
+
+    /* background-color: #616575; */
+    width: 204px;
+    height: 387px;
+}
+
+.lastBoxNavbarWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 48px;
+
+    list-style-type: none;
+
+    /* background-color: #616575; */
+    width: 204px;
+    height: 430px;
+}
+
+.main_text_cloth_style {
+    /* одежда */
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 121%;
+
+    /* or 19px */
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    /* Proto/06 */
+
+    color: #515562;
+}
+
+.text_cloth_style{
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    text-transform: capitalize;
+
+    cursor: pointer;
+    /* Proto/05 */
+
+    color: #616575;
+}   
