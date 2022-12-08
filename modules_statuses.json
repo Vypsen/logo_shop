@@ -4,5 +4,6 @@
     "Sizes": true,
     "Images": true,
     "Users": true,
-    "MainPage": true
+    "MainPage": true,
+    "Cart": true
 }

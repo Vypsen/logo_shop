@@ -10,6 +10,83 @@
         }
     ],
     "paths": {
+        "\/api\/cart\/set_quantity": {
+            "post": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Add\/delete products to\/from cart or set quantity",
+                "requestBody": {
+                    "description": "Cart modification",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "modifications": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "product_id": {
+                                                    "type": "integer"
+                                                },
+                                                "quantity": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/Cart"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/ErrorCartModification"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/cart\/show": {
+            "get": {
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Get cart by user or session id",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/Cart"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "\/api\/main_page": {
             "get": {
                 "tags": [
@@ -329,6 +406,69 @@
     },
     "components": {
         "schemas": {
+            "Cart": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "product": {
+                                    "$ref": "#\/components\/schemas\/PreviewProduct"
+                                },
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "price_item": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "price_total": {
+                                    "format": "double",
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "price_total": {
+                        "format": "double",
+                        "type": "number"
+                    }
+                }
+            },
+            "ErrorCartModification": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "modifications": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "product_id": {
+                                                "type": "integer",
+                                                "nullable": true
+                                            },
+                                            "quantity": {
+                                                "type": "integer",
+                                                "nullable": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "MainPage": {
                 "type": "object",
                 "properties": {
@@ -742,6 +882,10 @@
         {
             "name": "MainPage",
             "description": "MainPage info"
+        },
+        {
+            "name": "Cart",
+            "description": "Cart shop"
         }
     ]
 }

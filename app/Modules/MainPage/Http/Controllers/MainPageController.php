@@ -47,7 +47,7 @@ class MainPageController extends Controller
 
         return response()->json([
             'data' => [
-                'landing_slide ' =>
+                'landing_slide' =>
                 [
                     'landing_image' => $landingImage,
                     'subtitle' => $subtitle,

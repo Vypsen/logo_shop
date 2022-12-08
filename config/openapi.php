@@ -39,6 +39,10 @@ return [
                     'name' => 'MainPage',
                     'description' => 'MainPage info',
                 ],
+                [
+                    'name' => 'Cart',
+                    'description' => 'Cart shop',
+                ],
             ],
 
             'security' => [
