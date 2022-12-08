@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Modules\Cart\Http\Controllers\CartController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,5 +14,5 @@ use App\Modules\Cart\Http\Controllers\CartController;
 */
 Route::prefix('cart')->middleware('auth.optional:sanctum')->group(function () {
     Route::post('set_quantity', CartController::class . '@setQuantity');
-//    Route::get('show', CartController::class . '@setQuantity');
+    Route::get('show', CartController::class . '@show');
 });
