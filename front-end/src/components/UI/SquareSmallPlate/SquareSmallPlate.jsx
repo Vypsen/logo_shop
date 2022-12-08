@@ -4,7 +4,7 @@ import './SquareSmallPlate_style.css'
 const SquareSmallPlate = ({children}) => {
     return (
         <div className='squarePlate'>
-            <div>
+            <div className='squarePlateWrapper'>
                 {children}
             </div>
         </div>

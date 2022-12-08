@@ -1,0 +1,296 @@
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 64px;
+    margin-left: 96px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+.categoriesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 32px;
+    margin-bottom: 96px;
+}
+
+.categoriesWrapperLineBeforeLoading {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.categoriesWrapperLineAfterLoading {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    cursor: pointer;
+}
+
+
+
+.categoriesPlateSmall {
+    width: 394px;
+    height: 212px;
+
+    background: #F7F7FC;
+}
+
+.categoriesPlateBig {
+    width: 608px;
+    height: 288px;
+
+    background: #F7F7FC;
+}
+
+.productPlate {
+    width: 288px;
+    height: 407px;
+
+    background: #F7F7FC;
+}
+
+.newGoodsWrapper {
+    padding-bottom: 96px;
+}
+
+.titleText {
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 121%;
+    /* or 36px */
+
+    text-align: center;
+    text-transform: uppercase;
+
+    /* Proto/07 */
+
+    color: #323540;
+
+    margin-bottom: 48px;
+    margin-left: -48px;
+}
+
+.socialMediaWrapper {
+    margin-bottom: 96px;
+}
+
+.socialMediaContentWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    cursor: pointer;
+}
+
+.bg_img {
+    width: 1248px;
+    height: 346px;
+    opacity: 75%;
+}
+
+.img_wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img_wrap h1 {
+    position: absolute;
+    text-align: center;
+    top: 210px;
+    width: 100%;
+}
+
+.img_wrap svg {
+    position: absolute;
+    top: 136px;
+    scale: 2;
+}
+
+.smallPlateImage {
+    width: 394px;
+    height: 212px;
+    opacity: 75%;
+}
+
+.verticalSmallPlateImage {
+    width: 288px;
+    height: 407px;
+    opacity: 75%;
+}
+
+.smallPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.smallPlateWrapper h1 {
+    position: absolute;
+    width: 92px;
+    height: 22px;
+    left: 48px;
+    bottom: 95px;
+    
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 121%;
+    /* identical to box height, or 22px */
+    
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    
+    /* Proto/06 */
+    
+    color: white;
+}
+
+.bigPlateImage {
+    width: 608px;
+    height: 288px;
+    opacity: 75%;
+}
+
+.bigPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bigPlateWrapper h1 {
+    position: absolute;
+    width: 251px;
+    height: 29px;
+    left: 48px;
+    bottom: 129px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 121%;
+    /* identical to box height, or 29px */
+
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    /* Proto/06 */
+
+    color: white;
+}
+
+.aboutBox {
+    box-sizing: border-box;
+
+    width: 1248px;
+    height: 432px;
+    margin-bottom: 96px;
+    /* Proto/03 */
+
+    border: 2px solid #CDCFD6;
+}
+
+.aboutBoxWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutBoxTextWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    margin-top: 105px;
+
+}
+
+.aboutText {
+    width: 220px;
+    height: 36px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 121%;
+    /* or 36px */
+
+    text-transform: uppercase;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.shortInfoText {
+    width: 542px;
+    height: 66px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+
+    text-align: center;
+
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+.moreInfoBtnWrapper {
+    margin-top: 48px;
+}
+
+.moreInfoBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 70px;
+    gap: 10px;
+
+    width: 224px;
+    height: 48px;
+
+    /* Proto/05 */
+    cursor: pointer;
+    background: #616575;
+
+}
+
+.loaderStyle {
+    margin-top: 75px;
+}
+
+.loaderStyle2 {
+    margin-top: 100px;
+}
+
+.loaderStyle3 {
+    margin-top: 125px;
+    margin-left: 48%;
+}
+
+.loaderStyle4 {
+    margin-top: 170px;
+}
+
+.loaderStyle5 {
+    margin-left: 75px;
+    margin-top: 75px;
+}

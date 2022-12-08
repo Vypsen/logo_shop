@@ -2,7 +2,7 @@ import React from 'react'
 import './VerticalSmallPlate_style.css'
 
 
-const VerticalSmallPlate = ({children}) => {
+const VerticalSmallPlate = ({children, ...props}) => {
     return (
         <div className='vetricalPlate'>
             <div className='verticalPlateWrapper'>
