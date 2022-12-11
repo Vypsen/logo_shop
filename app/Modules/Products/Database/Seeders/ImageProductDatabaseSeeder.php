@@ -21,15 +21,15 @@ class ImageProductDatabaseSeeder extends Seeder
 
         ImageProducts::query()->delete();
         ImageProducts::deleteStorageImages();
+        $productIds = Product::query()->get('id');
+        $countProducts = $productIds->count();
 
-        for ($i = 0; $i < random_int(70, 100); ++$i) {
+        for ($i = 0; $i < random_int(50, 70); ++$i) {
 
             $image = new ImageProducts();
             $image->path = $faker->loremFlickr('products/images');
 
-            $product = Product::inRandomOrder()->first();
-            $image->product()->associate($product);
-
+            $image->product()->associate($productIds[$i%$countProducts]);
             $image->save();
         }
 
