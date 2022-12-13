@@ -1,0 +1,131 @@
+.contentCatalogWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 32px;
+    margin-left: 96px;
+    margin-bottom: 136px;
+}
+
+.treeText {
+    margin-bottom: 40px;
+}
+
+.contentSpace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 96px;
+}
+
+.lineBetweenNameAndProducts {
+    position: absolute;
+    width: 1248px;
+    height: 0px;
+    top: 296px;
+    
+    opacity: 0.5;
+    /* Proto/03 */
+    
+    border: 1px solid #CDCFD6;
+}
+
+.productsWrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 79px;
+    margin-left: 150px;
+    margin-bottom: 73px;
+    gap: 32px;
+}
+
+.baseStyleLink {
+    text-decoration: none;
+}
+
+.catalogLoaderStyle {
+    margin-top: 170px;
+}
+
+.pageWrapper {
+    display: flex;
+    flex-direction: row;
+    
+    width: 1222px;
+
+    justify-content: center;
+    gap: 16px;
+    margin-top: 96px;
+
+
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    width: 32px;
+    height: 32px;
+
+    padding-left: 11px;
+    padding-top: 5px;
+
+    cursor: pointer;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    opacity: 0.6;
+    /* Proto/03 */
+
+
+    border: 1px solid #CDCFD6;
+}
+
+.pageSelected {
+    background: #F7F7FC;
+    opacity: 1.0;
+}
+
+.nextPage {
+    cursor: pointer;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    margin-right: 8px;
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+.prevPage {
+    cursor: pointer;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    margin-left: 8px;
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+.arrowsContainer {
+    padding-top: 7px;
+}
+
+.arrowInviz {
+    opacity: 0;
+}
+
+.arrowToBack {
+    transform: scale(-1, -1);
+}

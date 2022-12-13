@@ -28,7 +28,9 @@
     cursor: pointer;
 }
 
-
+.baseStyleLink {
+    text-decoration: none;
+}
 
 .categoriesPlateSmall {
     width: 394px;

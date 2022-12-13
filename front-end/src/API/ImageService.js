@@ -22,9 +22,9 @@ export default class ImageService {
             })
         })
 
-        //После исправления пустой картинки удалить!!!!!!!!!!
-        responses[2][1].images.push({id: 124124, path: responses[2][0].images[0].path})
-        // console.log(responses[2][0].images[0].path)
+        // //После исправления пустой картинки удалить!!!!!!!!!!
+        // responses[2][1].images.push({id: 124124, path: responses[2][0].images[0].path})
+        // // console.log(responses[2][0].images[0].path)
 
         responses[3].map((i) => {
             i.images.map((j) => {

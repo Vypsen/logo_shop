@@ -1,0 +1,33 @@
+.CustomSelectorSizeStyle {
+    box-sizing: border-box;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 121%;
+    
+    /* Auto layout */
+
+    padding: 7px 0 7px 32px;
+    outline: 0;
+
+    width: 160px;
+    height: 40px;
+
+    cursor: pointer;
+    /* Proto/01 */
+
+    margin: 0;      
+    
+    background: #FFFFFF;
+    /* Proto/03 */
+
+    color: #515562;
+    border: 1px solid #CDCFD6;
+}
+
+.CustomOptionInvisible {
+    display: none;
+    font-size: 0;
+}

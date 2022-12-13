@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import Loader from '../components/UI/Loader/Loader';
 import { Link, useParams } from 'react-router-dom';
 import ColorCircle from '../components/UI/ColorCircles/ColorCircles';
+import CustomSelect from '../components/UI/CustomSelect/CustomSelect';
 
 const ProductPage = () => {
 
@@ -29,7 +30,6 @@ const ProductPage = () => {
 
 
     const [singleColorIsActive, setSingleColorIsActive] = useState([])
-    const [productData, setProductData] = useState([])
     const [bigPlateImage, setBigPlateImage] = useState()
     const [attributeData, setAttributeData] = useState([])
     const [brandData, setBrandData] = useState([])
@@ -38,12 +38,13 @@ const ProductPage = () => {
     const [imagesData, setIamgesData] = useState([])
     const [sizesData, setSizesData] = useState([])
     const [otherInfoData, setOtherInfoData] = useState([])
-    const [images, setImages] = useState([{id: 124124, path: "http://localhost"}])
-    const [slug, setSlug] = useState("consequuntur")
+
+    const [selectedSize, setSelectedSize] = useState('')
+    const [selectedAmount, setSelectedAmount] = useState(1)
+    const [selectedColor, setSelectedColor] = useState('')
     // setSlug("eos")
 
     const [isL2, setIsL2] = useState({Loading: true})
-    let isL = true
     const [fetchData, isDLoading, dataError] = useFetching(async (slug) => {
         const [responseAttributeData,
             responseBrandData,
@@ -62,7 +63,6 @@ const ProductPage = () => {
         setSizesData(responseSizesData)
         setOtherInfoData(responseOtherInfoData)
         setBigPlateImage(responseImagesData[0].path)
-        console.log(responseImagesData)
         
     })
 
@@ -81,13 +81,10 @@ const ProductPage = () => {
             if (colorsData[i].color_name === circleColor)
             {
                 colorsArray.push({st: true, col: colorsData[i].color_name})
-                // colorsArray[i].s = true
-                // colorsArray[i].c = colorsData.colorName
+                setSelectedColor(colorsData[i].color_name)
             }
             else {
                 colorsArray.push({st: false, col: colorsData[i].color_name})
-                // colorsArray[i].s = false
-                // colorsArray[i].c = colorsData.colorName
             }
         }
         setSingleColorIsActive(colorsArray)
@@ -97,6 +94,19 @@ const ProductPage = () => {
         setBigPlateImage(newBigPlateImage)
     }
 
+    const getSize = (size) => {
+        setSelectedSize(size)
+    }
+
+    const getAmount = (amount) => {
+        setSelectedAmount(amount)
+    }
+
+    const getDataToCart = () => {
+        console.log(selectedAmount)
+        console.log(selectedSize)
+        console.log(selectedColor)
+    }
 
     return (
         <div className='contentWrapper'>
@@ -125,23 +135,19 @@ const ProductPage = () => {
                             {imagesData.map((i) => 
                                 <SwiperSlide key={i.id}>
                                     <VerticalVerySmallPlate onClick={() => changeBigPlateImage(i.path)}>
-                                        <img width={180} height={242} alt='' src={i.path}/>
+                                        <img alt={i.id} width={180} height={242} src={i.path}/>
                                     </VerticalVerySmallPlate>
                                 </SwiperSlide>
 
                             )}
                         </div>
                         }
-                        {/* <SwiperSlide> <VerticalVerySmallPlate>agsgdasdfg</VerticalVerySmallPlate> </SwiperSlide>
-                        <SwiperSlide> <VerticalVerySmallPlate>agsgdasdfg</VerticalVerySmallPlate> </SwiperSlide>
-                        <SwiperSlide> <VerticalVerySmallPlate>agsgdasdfg</VerticalVerySmallPlate> </SwiperSlide>
-                        <SwiperSlide> <VerticalVerySmallPlate>agsgdasdfg</VerticalVerySmallPlate> </SwiperSlide> */}
 
                     </Swiper>
                 </div>
                 <div className='bigPictureWrapper'>
                     <VerticalBigPlate isNew={otherInfoData.is_new} isSale={otherInfoData.is_sale}>
-                        <img width={464} height={612} src={bigPlateImage}></img>
+                        <img alt={"MainPic"} width={464} height={612} src={bigPlateImage}></img>
                     </VerticalBigPlate>
                 </div>
                 <div className='contentWrapperInfo'>
@@ -162,15 +168,11 @@ const ProductPage = () => {
                     <div className='sizeContentElements'>
                         <h2>Размер</h2>
                         <div className='sizeContentElementsBottomContent'>
-                            <select className='selectorSizeStyle' name='sl'>
-                                <option className='optionInvisible' disabled hidden></option>
-                                {isDLoading
-                                ? 
-                                    <option></option>
-                                : 
-                                    <>{sizesData.map((sd) => <option key={sd.size_name} value={sd.size_name}>{sd.size_name}</option>)}</>
-                                }
-                            </select>
+                            <CustomSelect
+                                value={selectedSize}
+                                onChange={getSize}
+                                options={sizesData}
+                            />
                             <div>
                                 <div>Не можете подобрать разер?</div>
                                 <div>Запишитесь на примерку в наш шоурум</div>
@@ -185,7 +187,7 @@ const ProductPage = () => {
                             :
                             <div className='colorContentWrapper'>
                                 {colorsData.map((cs) => 
-                                    <div key={cs.color_name} onClick={() => colorSelector(cs.color_name)}>
+                                    <div key={cs.id} onClick={() => colorSelector(cs.color_name)}>
                                         <ColorCircle colorName={cs.color_name} colorsState={singleColorIsActive}/>
                                     </div>
                                 )}
@@ -196,8 +198,14 @@ const ProductPage = () => {
                     <div className='orderContentElements'>
                         <div className='priceStyle'>{otherInfoData.price} ₽</div>
                         <div className='orderContentElementsFunctionalBtns'>
-                            <div><Counter/></div>
-                            <div className='toCartElementStyle'>
+                            <div>
+                                <Counter 
+                                    value={selectedAmount} 
+                                    setValue={setSelectedAmount}
+                                    onChange={getAmount}
+                                    />
+                            </div>
+                            <div className='toCartElementStyle' onClick={() => getDataToCart()}>
                                 <div>
                                     В корзину
                                 </div>

@@ -134,6 +134,7 @@
     width: 139px;
     height: 40px;
 
+    cursor: pointer;
     /* Proto/01 */
 
     margin: 0;      
@@ -220,6 +221,8 @@
     align-items: center;
     padding: 14px 17px;
     gap: 10px;
+
+    cursor: pointer;
 
     width: 136px;
     height: 40px;

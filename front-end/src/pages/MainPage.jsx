@@ -135,18 +135,18 @@ const MainPage = () => {
                             spaceBetween={34}
                             direction={"horizontal"}
                             pagination={{
-                            dynamicBullets: true,
+                                dynamicBullets: true,
                             }}
                             modules={[Pagination]}
                             className="swiperHorizontal"
                         >
                             {newProductsSlide.map((nps) =>
                                 <SwiperSlide key={nps.id}>
-                                    <Link to={"/product_details/" + nps.slug}>
-
+                                    <Link to={"/product_details/" + nps.slug} className="baseStyleLink">
                                             <VerticalSmallPlate key={nps.name} isNew={nps.is_new} isSale={nps.is_sale}>
                                                 <img className='verticalSmallPlateImage' alt='' src={nps.images[0].path}></img>
-                                                <h1>{nps.name}</h1>
+                                                <h2>{nps.name}</h2>
+                                                <h1>{nps.price} ₽</h1>
                                             </VerticalSmallPlate>
                                     </Link>
 

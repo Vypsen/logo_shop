@@ -3,17 +3,23 @@ import { useState } from 'react';
 
 import cjs from './Counter_style.module.css'
 
-const Counter = () => {
+const Counter = ({value, setValue, onChange}) => {
 
     const [count, setCount] = useState(1)
 
     function increment() {
-        setCount(count + 1)
+        // setCount(count + 1)
+        // value = count
+        setValue(value + 1)
     }
 
     function decrement() {
-        if (count > 1)
-            setCount(count - 1)
+        if (value > 1) {
+            // setCount(count - 1)
+            setValue(value - 1)
+        }
+        // value = count
+        // console.log(value)
     }
 
     return (
@@ -24,8 +30,13 @@ const Counter = () => {
             </svg>
 
             </button>
-
-            <h1>{count}</h1>
+            {/* <textarea value={value} onChange={event => onChange(event.target.value)} disabled>{value}</textarea> */}
+            <h1
+                value={value}
+                onChange={event => onChange(event.target.count)}
+            >
+                {value}
+            </h1>
 
             <button className={cjs.counterWrapperButtonInc} onClick={increment}>
             <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
