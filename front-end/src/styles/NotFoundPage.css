@@ -1,0 +1,117 @@
+.contentWrapper {
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.contentWrapperWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .img_wrap h1 {
+    position: absolute;
+    text-align: center;
+    top: 210px;
+    width: 100%;
+} */
+
+
+.textError {
+    position: relative;
+
+    left: 30px;
+    top: 218px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+
+    /* Proto/07 */
+
+    color: #323540;
+    }
+
+.textHint {
+    position: absolute;
+    left: 450px;
+
+    top: 264px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.zeroStyle {
+    position: absolute;
+
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.fourStyleLeft {
+    position: absolute;
+
+    margin-top: 10px;
+    left: 440px;
+}
+
+.fourStyleRight {
+    position: absolute;
+
+    margin-top: 10px;
+
+    left: 720px;
+}
+
+.toMainPageStyle {
+    position: absolute;
+    top: 388px;
+    padding: 14px 17px;
+    gap: 10px;
+    cursor: pointer;
+
+    width: 168px;
+    height: 48px;
+
+    z-index: 2;
+    /* Proto/05 */
+
+    background: #616575;
+}
+
+.toMainPageStyle div {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 121%;
+    margin-left: 18px;
+    margin-top: 1px;
+    /* identical to box height, or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    /* Proto/01 */
+
+    color: #FFFFFF;
+
+} 
