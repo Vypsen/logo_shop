@@ -38,7 +38,8 @@ class ProductsDatabaseSeeder extends Seeder
             $product->discount_price = $faker->randomFloat(2, 10, 1000000);
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
-            $product->is_show = $faker->boolean(70);
+            $product->is_show = $faker->boolean(80);
+            $product->is_fitting = $faker->boolean(80);
 
             $category = ProductCategory::inRandomOrder()->first();
             $brand = Brand::inRandomOrder()->first();
