@@ -1,0 +1,46 @@
+.counterWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+
+    gap: 10px;
+
+    width: 104px;
+    height: 40px;
+
+    border: 1px solid #9CA0AB;
+}
+
+.counterWrapper h1 {
+    padding-top: 8px;
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    scale: 1.4;
+    /* Proto/06 */
+
+    color: #515562;
+}
+
+.counterWrapperButtonDec {
+    background-color: white;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    border: 0;
+}
+
+.counterWrapperButtonInc {
+    background-color: white;
+    padding-right: 15px;
+    border: 0;
+}

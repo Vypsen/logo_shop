@@ -46,6 +46,7 @@ const MainPage = () => {
     useEffect(() => {
         fetchImages()
 
+        console.log(categoriesSlide)
         // setTimeout(getLandingSlide, 10000)
     }, [])
 
@@ -58,7 +59,8 @@ const MainPage = () => {
                         <img className='bg_img' alt='' src={landingSlide.landing_image}/>
                         <h1>{landingSlide.subtitle}</h1>
                         <SvgSelector id={icons[8]}/>
-                    </LandingSlidePlate>}
+                    </LandingSlidePlate>
+                }
             </div>
 
             <div className='categoriesWrapper'>
@@ -131,19 +133,24 @@ const MainPage = () => {
                         <Swiper
                             slidesPerView={4}
                             spaceBetween={34}
+                            direction={"horizontal"}
                             pagination={{
                             dynamicBullets: true,
                             }}
                             modules={[Pagination]}
-                            className="mySwiper"
+                            className="swiperHorizontal"
                         >
                             {newProductsSlide.map((nps) =>
-                            <SwiperSlide key={nps.id}>
-                                <VerticalSmallPlate key={nps.name}>
-                                    <img className='verticalSmallPlateImage' alt='' src={nps.images[0].path}></img>
-                                    <h1>{nps.name}</h1>
-                                </VerticalSmallPlate>
-                            </SwiperSlide>
+                                <SwiperSlide key={nps.id}>
+                                    <Link to={"/product_details/" + nps.slug}>
+
+                                            <VerticalSmallPlate key={nps.name} isNew={nps.is_new} isSale={nps.is_sale}>
+                                                <img className='verticalSmallPlateImage' alt='' src={nps.images[0].path}></img>
+                                                <h1>{nps.name}</h1>
+                                            </VerticalSmallPlate>
+                                    </Link>
+
+                                </SwiperSlide>
                             )
                         }
                         </Swiper>

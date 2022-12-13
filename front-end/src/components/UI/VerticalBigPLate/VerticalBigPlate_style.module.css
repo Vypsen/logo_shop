@@ -1,0 +1,81 @@
+.verticalBigPlate {
+    width: 464px;
+    height: 612px;
+
+    background: #F7F7FC;
+}
+
+.verticalBigPlateWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verticalBigPlateLabelsWrapper {
+    display: flex;
+}
+
+.verticalBigPlateWrapperNew {
+    position: absolute;
+    width: 64px;
+    height: 24px;
+    left: 0;
+    top: 32px;
+
+    background: #CDCFD6;
+}
+
+.verticalBigPlateWrapperNew div {
+    margin-left: 20px;
+    margin-top: 3px;
+    
+    height: 18px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    scale: 1.1;
+    /* identical to box height */
+    
+    
+    /* Proto/07 */
+    
+    color: #323540;
+}
+
+.verticalBigPlateWrapperSale {
+    position: absolute;
+    width: 64px;
+    height: 24px;
+    left: 0;
+    top: 64px;
+
+    background: #ffd3d3;
+}
+
+.verticalBigPlateWrapperSale.NewFalse {
+    top: 32px;
+}
+
+.verticalBigPlateWrapperSale div {
+    margin-left: 20px;
+    margin-top: 3px;
+    
+    height: 18px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    scale: 1.1;
+    /* identical to box height */
+    
+    
+    /* Proto/07 */
+    
+    color: #323540;
+}

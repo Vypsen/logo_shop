@@ -1,0 +1,257 @@
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 32px;
+    margin-left: 96px;
+    margin-bottom: 136px;
+}
+
+.contentWrapperElements {
+    display: flex;
+    flex-direction: row;
+}
+
+.sliderWrapper {
+    margin-top: 56px;
+    margin-left: 34px;
+}
+
+.bigPictureWrapper {
+    margin-top: 56px;
+}
+
+.contentWrapperInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+    margin-left: 45px;
+    height: 612px;
+    width: 500px;
+}
+
+.contentWrapperInfo h1 {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.contentWrapperInfo h2 {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 151%;
+    /* or 24px */
+
+    text-transform: uppercase;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.article {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    margin-bottom: 24px;
+
+    color: #515562;
+}
+
+.description {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 165%;
+    margin-bottom: 24px;
+
+    color: #616575;
+}
+
+.compound {
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.compound div {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+.compoundInfoWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.sizeContentElements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.sizeContentElementsBottomContent {
+    display: flex;
+    flex-direction: row;
+    gap: 27px;
+}
+
+.selectorSizeStyle {
+    box-sizing: border-box;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 121%;
+    
+    /* Auto layout */
+
+    padding: 7px 0 7px 32px;
+    outline: 0;
+
+    width: 139px;
+    height: 40px;
+
+    /* Proto/01 */
+
+    margin: 0;      
+    
+    background: #FFFFFF;
+    /* Proto/03 */
+
+    color: #515562;
+    border: 1px solid #CDCFD6;
+}
+
+.selectorSizeStyle option {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 121%;
+    /* or 19px */
+
+    display: flex;
+    align-items: left;
+    text-align: left;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    /* Proto/06 */
+
+    color: #515562;
+
+}
+
+.optionInvisible {
+    display: none;
+    font-size: 0;
+}
+
+.colorContentElements{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 51px;
+}
+
+.colorContentWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+}
+
+.orderContentElements {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.orderContentElementsFunctionalBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.priceStyle {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 121%;
+    /* identical to box height, or 29px */
+
+    display: flex;
+    align-items: center;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.toCartElementStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    gap: 10px;
+
+    width: 136px;
+    height: 40px;
+
+    /* Proto/05 */
+
+    background: #616575;
+}
+
+.toCartElementStyle div {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    /* Proto/01 */
+
+    color: #FFFFFF;
+}
+
+.colorStrokeActive {
+    stroke-width: 2px;
+}
+
+.colorStrokeDisabled {
+    stroke-width: 1px;
+}

@@ -1,0 +1,9 @@
+.colorCircleStrokeActive {
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
+.colorCircleStrokeDisabled {
+    stroke-width: 1px;
+    cursor: pointer;
+}

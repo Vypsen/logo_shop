@@ -1,11 +1,13 @@
-.vetricalPlate {
-    width: 288px;
-    height: 407px;
+.vetricalVerySmallPlate {
+    width: 180px;
+    height: 242px;
+
+    cursor: pointer;
 
     background: #F7F7FC;
 }
 
-.verticalPlateWrapper {
+.verticalVerySmallPlateWrapper {
     position: relative;
     display: flex;
     flex-direction: column;
