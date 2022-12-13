@@ -306,27 +306,22 @@
                     "Auth"
                 ],
                 "summary": "create sms code",
-                "parameters": [
-                    {
-                        "name": "phone",
-                        "in": "query",
-                        "description": "phone user",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "+78005553535"
-                    },
-                    {
-                        "name": "policy",
-                        "in": "query",
-                        "description": "Terms of use",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean"
+                "requestBody": {
+                    "description": "user phone",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "phone": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
                         }
-                    }
-                ],
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "sms code sent successfully"
@@ -343,18 +338,22 @@
                     "Auth"
                 ],
                 "summary": "check user code",
-                "parameters": [
-                    {
-                        "name": "user_code",
-                        "in": "query",
-                        "description": "user code for auth",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "example": "123456"
-                    }
-                ],
+                "requestBody": {
+                    "description": "user code",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user_code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "$ref": "#\/components\/responses\/User Token"

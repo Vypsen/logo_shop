@@ -16,7 +16,6 @@ class PhoneRequest extends FormRequest
     {
         return [
             'phone' => ['required', new PhoneNumberRule],
-            'policy' => ['accepted']
         ];
     }
 
