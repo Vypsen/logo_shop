@@ -31,6 +31,12 @@
                                                 "product_id": {
                                                     "type": "integer"
                                                 },
+                                                "color_id": {
+                                                    "type": "integer"
+                                                },
+                                                "size_id": {
+                                                    "type": "integer"
+                                                },
                                                 "quantity": {
                                                     "type": "integer"
                                                 }
@@ -426,6 +432,28 @@
                                 "product": {
                                     "$ref": "#\/components\/schemas\/PreviewProduct"
                                 },
+                                "color": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "color_name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "size": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "size_name": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
                                 "quantity": {
                                     "type": "integer"
                                 },
@@ -436,11 +464,31 @@
                                 "price_total": {
                                     "format": "double",
                                     "type": "number"
+                                },
+                                "item_sale": {
+                                    "format": "double",
+                                    "type": "number"
+                                },
+                                "total_sale": {
+                                    "format": "double",
+                                    "type": "number"
                                 }
                             }
                         }
                     },
                     "price_total": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "total_sale": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "total_sum": {
+                        "format": "double",
+                        "type": "number"
+                    },
+                    "total_quantity": {
                         "format": "double",
                         "type": "number"
                     }

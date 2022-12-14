@@ -2,7 +2,9 @@
 
 namespace App\Modules\Cart\Entities;
 
+use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Product;
+use App\Modules\Products\Entities\Size;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,6 +34,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $color_id
+ * @property int $size_id
+ * @property float $item_sale
+ * @property float $total_sale
+ * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereColorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereItemSale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereSizeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereTotalSale($value)
  */
 class CartItem extends Model
 {
@@ -53,5 +63,15 @@ class CartItem extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function color(): BelongsTo
+    {
+        return $this->belongsTo(Color::class);
+    }
+
+    public function size(): BelongsTo
+    {
+        return $this->belongsTo(Size::class);
     }
 }

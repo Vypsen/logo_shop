@@ -65,6 +65,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property bool $is_show
  * @method static Builder|Product whereIsShow($value)
  * @method static Builder|Product whereNameOnSite($value)
+ * @property bool|null $is_fitting
+ * @method static Builder|Product whereIsFitting($value)
  */
 
 class Product extends Model

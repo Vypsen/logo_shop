@@ -27,6 +27,8 @@ class CartModificationRequest extends FormRequest
         return [
             'modifications' => 'required|array|min:1',
             'modifications.*.product_id' => 'required|int|exists:products,id',
+            'modifications.*.color_id' => 'required|int|exists:colors,id',
+            'modifications.*.size_id' => 'required|int|exists:sizes,id',
             'modifications.*.quantity' => 'required|int|min:0|max:99',
         ];
     }

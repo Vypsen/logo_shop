@@ -35,7 +35,7 @@ class ProductsDatabaseSeeder extends Seeder
             $product->name_on_site = $product->name;
             $product->description = $faker->realText();
             $product->price = $faker->randomFloat(2, 10, 1000000);
-            $product->discount_price = $faker->randomFloat(2, 10, 1000000);
+            $product->discount_price = $product->price - $faker->randomFloat(2, 100, 100000);
             $product->is_sale = $faker->boolean();
             $product->is_new = $faker->boolean();
             $product->is_show = $faker->boolean(80);

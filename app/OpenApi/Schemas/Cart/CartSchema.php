@@ -23,11 +23,26 @@ class CartSchema extends SchemaFactory implements Reusable
             ->properties(
                 Schema::array('items')->items(Schema::object()->properties(
                     PreviewProductSchema::ref('product'),
+
+                    Schema::object('color')->properties(
+                        Schema::string('id'),
+                        Schema::string('color_name')
+                    ),
+                    Schema::object('size')->properties(
+                        Schema::string('id'),
+                        Schema::string('size_name')
+                    ),
                     Schema::integer('quantity'),
                     Schema::number('price_item')->format('double'),
                     Schema::number('price_total')->format('double'),
+                    Schema::number('item_sale')->format('double'),
+                    Schema::number('total_sale')->format('double'),
+
                 )),
                 Schema::number('price_total')->format('double'),
+                Schema::number('total_sale')->format('double'),
+                Schema::number('total_sum')->format('double'),
+                Schema::number('total_quantity')->format('double'),
             );
     }
 }
