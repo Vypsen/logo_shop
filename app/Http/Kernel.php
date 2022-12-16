@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
         ],
 
-        'api-session' => [
+        'api_session' => [
             \Illuminate\Session\Middleware\StartSession::class,
         ]
     ];

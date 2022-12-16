@@ -6,9 +6,12 @@ use App\Modules\Users\Entities\PhoneNumber;
 use App\Modules\Users\Entities\User;
 use App\Modules\Users\Http\Requests\CodeFailRequest;
 use App\Modules\Users\Http\Requests\PhoneFailRequest;
+use App\Modules\Users\Http\Requests\UserCodeRequest;
 use App\Modules\Users\Transformers\UserResource;
 use App\OpenApi\Parameters\User\CodeParameters;
 use App\OpenApi\Parameters\User\PhoneParameters;
+use App\OpenApi\RequestBodies\PhoneRequestBody;
+use App\OpenApi\RequestBodies\UserCodeRequestBody;
 use App\OpenApi\Responses\FailedValidationResponse;
 use App\OpenApi\Responses\User\LogoutUserResponse;
 use App\OpenApi\Responses\User\SendSMSResponse;
@@ -31,7 +34,7 @@ class AuthController extends Controller
      * @return Responsable
      */
     #[OpenApi\Operation(tags: ['Auth'], method: 'POST')]
-    #[OpenApi\Parameters(factory: PhoneParameters::class)]
+    #[OpenApi\RequestBody(factory: PhoneRequestBody::class)]
     #[OpenApi\Response(factory: SendSMSResponse::class, statusCode: 200)]
     #[OpenApi\Response(factory: FailedValidationResponse::class, statusCode: 422)]
     public function createVerifyCode(PhoneFailRequest $request)
@@ -46,7 +49,7 @@ class AuthController extends Controller
         }
 
         session(['sms_code' => $smsCode[0], 'phone' => $phone]);
-        return response()->json(['sms code sent successfully']);
+        return response()->json(['sms code send successfully' => session('sms_code')]);
     }
 
     /**
@@ -55,11 +58,12 @@ class AuthController extends Controller
      * @return Responsable
      */
     #[OpenApi\Operation(tags: ['Auth'], method: 'POST')]
-    #[OpenApi\Parameters(factory: CodeParameters::class)]
+    #[OpenApi\RequestBody(factory: UserCodeRequestBody::class)]
     #[OpenApi\Response(factory: UserTokenResponse::class, statusCode: 200)]
     #[OpenApi\Response(factory: FailedValidationResponse::class, statusCode: 422)]
     public function checkSmsCode(CodeFailRequest $request)
     {
+
         $data = $request->validated();
         $user_code = $data['user_code'];
 
@@ -87,7 +91,7 @@ class AuthController extends Controller
                 ]);
             }
         }
-        return response()->json(['user_code' => 'incorrect code' ], 403);
+        return response()->json(['user_code' => 'incorrect code'], 403);
     }
 
     /**
