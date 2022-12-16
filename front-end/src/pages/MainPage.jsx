@@ -73,10 +73,12 @@ const MainPage = () => {
                 </div>
                 : <div className='categoriesWrapperLineAfterLoading'>
                     {categoriesSlide.slice(1, 4).map((cs) => 
-                        <HorizontalSmallPlate key={cs.name}>
-                            <img className='smallPlateImage' alt='' src={cs.image[0].path}></img>
-                            <h1>{cs.name}</h1>
-                        </HorizontalSmallPlate>
+                        <Link key={cs.name} to={'/catalog/' + cs.slug + "/1"}>
+                            <HorizontalSmallPlate>
+                                <img className='smallPlateImage' alt='' src={cs.image[0].path}></img>
+                                <h1>{cs.name}</h1>
+                            </HorizontalSmallPlate>
+                        </Link>
                     )}
 
                 </div>
@@ -89,10 +91,12 @@ const MainPage = () => {
                 </div>
                 : <div className='categoriesWrapperLineAfterLoading'>
                     {categoriesSlide.slice(4, 6).map((cs) => 
-                        <HorizontalBigPlate key={cs.name} onClick={() => console.log("Clicked")}>
-                            <img className='bigPlateImage' alt={cs.name} src={cs.image[0].path} draggable="false"></img>
-                            <h1>{cs.name}</h1>
-                        </HorizontalBigPlate>
+                        <Link key={cs.name} to={'/catalog/' + cs.slug + "/1"}>
+                            <HorizontalBigPlate onClick={() => console.log("Clicked")}>
+                                <img className='bigPlateImage' alt={cs.name} src={cs.image[0].path} draggable="false"></img>
+                                <h1>{cs.name}</h1>
+                            </HorizontalBigPlate>
+                        </Link>
                     )}
 
                 </div>
@@ -107,10 +111,12 @@ const MainPage = () => {
                 </div>
                 : <div className='categoriesWrapperLineAfterLoading'>
                     {categoriesSlide.slice(7, 10).map((cs) => 
-                        <HorizontalSmallPlate key={cs.name}>
-                                <img className='smallPlateImage' alt='' src={cs.image[0].path}></img>
-                                <h1>{cs.name}</h1>
-                        </HorizontalSmallPlate>
+                        <Link key={cs.name} to={'/catalog/' + cs.slug + "/1"}>
+                            <HorizontalSmallPlate>
+                                    <img className='smallPlateImage' alt='' src={cs.image[0].path}></img>
+                                    <h1>{cs.name}</h1>
+                            </HorizontalSmallPlate>
+                        </Link>
                     )}
 
                 </div>

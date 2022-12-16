@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 116px;
 }
 
 .catalogNavbarListWrapper {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 24px;
 }
 
@@ -21,8 +24,7 @@
     list-style-type: none;
 
     /* background-color: #616575; */
-    width: 204px;
-    height: 387px;
+    width: 102px;
 }
 
 .lastBoxNavbarWrapper {

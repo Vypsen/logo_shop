@@ -21,6 +21,7 @@ const AppRouter = () => {
                     <Route path='basket_page' element={<BasketPage/>}/>
                     <Route path='catalog/*' element={<Catalog/>}/>
                     <Route path='catalog/:page' element={<Catalog/>}/>
+                    <Route path='catalog/:category/:page' element={<Catalog/>}/>
                     <Route path='product_details/:slug' element={<ProductPage/>}/>
                     <Route path='checkout' element={<CheckoutPage/>}/>
                     <Route path='order' element={<OrderPage/>}/>
