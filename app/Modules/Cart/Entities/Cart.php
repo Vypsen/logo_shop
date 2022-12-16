@@ -2,7 +2,9 @@
 
 namespace App\Modules\Cart\Entities;
 
+use App\Modules\Products\Entities\Color;
 use App\Modules\Products\Entities\Product;
+use App\Modules\Products\Entities\Size;
 use App\Modules\Users\Entities\User;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,6 +34,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Cart whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Cart whereUserId($value)
  * @mixin \Eloquent
+ * @property float $total_sale
+ * @property float $total_sum
+ * @property int $total_quantity
+ * @method static \Illuminate\Database\Eloquent\Builder|Cart whereTotalQuantity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cart whereTotalSale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Cart whereTotalSum($value)
  */
 class Cart extends Model
 {
@@ -43,7 +51,8 @@ class Cart extends Model
     protected $fillable = [
         'session_id',
         'user_id',
-        'price_total'
+        'price_total',
+        'total_sale',
     ];
 
     public function items(): HasMany
@@ -80,6 +89,7 @@ class Cart extends Model
         $cart->user_id = $user->id ?? null;
         $cart->session_id = $sessionId;
         $cart->price_total = 0;
+        $cart->total_sale = 0;
         return $cart;
     }
 
@@ -99,7 +109,7 @@ class Cart extends Model
         }
     }
 
-    public function setProductQuantity(Product $product, int $quantity): void
+    public function setProductQuantity(Product $product, Color $color, Size $size, int $quantity): void
     {
         $this->fillItemsByProductId();
 
@@ -108,9 +118,17 @@ class Cart extends Model
             $cartItem = new CartItem();
             $cartItem->product_id = $product->id;
         }
-        $cartItem->price_item = $product->price;
+
+        $cartItem->item_sale = 0;
+        if ($product->is_sale) {
+            $cartItem->item_sale = $product->price - $product->discount_price;
+        }
         $cartItem->quantity = $quantity;
+        $cartItem->total_sale = $cartItem->quantity * $cartItem->item_sale;
+        $cartItem->price_item = $product->price;
         $cartItem->price_total = $cartItem->quantity * $cartItem->price_item;
+        $cartItem->color_id = $color->id;
+        $cartItem->size_id = $size->id;
 
         $this->itemsByProductId[$product->id] = $cartItem;
     }
@@ -119,11 +137,15 @@ class Cart extends Model
     {
         $this->fillItemsByProductId();
         $this->price_total = 0;
+        $this->total_sale = 0;
         foreach ($this->itemsByProductId as $productId => $cartItem) {
             $cartItem->price_item = $cartItem->product->price;
             $cartItem->price_total = $cartItem->quantity * $cartItem->price_item;
             $this->price_total += $cartItem->price_total;
+            $this->total_sale += $cartItem->total_sale;
+            $this->total_quantity += $cartItem->quantity;
         }
+        $this->total_sum = $this->price_total - $this->total_sale;
     }
 
     public function save(array $options = []): void

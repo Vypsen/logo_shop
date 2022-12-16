@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Modules\Products\Entities\Product[] $product
  * @property-read int|null $product_count
+ * @property string|null $hex_color
+ * @method static \Illuminate\Database\Eloquent\Builder|Color whereHexColor($value)
  */
 class Color extends Model
 {

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('name_on_site');
             $table->string('slug')->unique();
             $table->string('description');
-            $table->unsignedDouble('price');
-            $table->unsignedDouble('discount_price');
+            $table->unsignedDouble('price', 8, 2);
+            $table->unsignedDouble('discount_price', 8, 2);
             $table->boolean('is_sale');
             $table->boolean('is_new');
             $table->boolean('is_show');
