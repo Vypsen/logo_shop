@@ -1,0 +1,77 @@
+.SucessfullApplicationWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    margin-top: 200px;
+    margin-bottom: 270px;
+}
+
+.iconBagWrapper {
+    margin-bottom: 48px;
+}
+
+.titleSucessfullApplication {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+
+    margin-bottom: 16px;
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.greetingSucessfullApplication {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    margin-bottom: 40px;
+    /* Proto/06 */
+
+    color: #515562;
+}
+
+.btnToMainPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    gap: 10px;
+
+    width: 168px;
+    height: 48px;
+
+    cursor: pointer;
+
+    background: #616575;
+}
+
+.btnToMainPage div{
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    
+    /* Proto/01 */
+    
+    color: #FFFFFF;
+    
+}

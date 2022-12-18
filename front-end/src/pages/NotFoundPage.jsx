@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import jesusImage from '../assets/NotFound2.png'
 
 import '../styles/NotFoundPage.css'
 
 const NotFoundPage = () => {
+
+    const navigate = useNavigate()
+
     return (
         <div className='contentWrapper'>
             <div className='contentWrapperWrapper'>
@@ -23,12 +26,10 @@ const NotFoundPage = () => {
 
                 <h1 className='textError'>Такой страницы не существует</h1>
                 <h1 className='textHint'>Попробуйте перезагрузить страницу или проверьте ссылку</h1>
-                <div className='toMainPageStyle'>
-                    <Link to={"/"}>
-                        <div>
-                            На главную
-                        </div>
-                    </Link>
+                <div className='toMainPageStyle' onClick={() => navigate("/")}>
+                    <div>
+                        На главную
+                    </div>
                 </div>
                 <img className='imageStyle' src={jesusImage}></img>
             </div>
