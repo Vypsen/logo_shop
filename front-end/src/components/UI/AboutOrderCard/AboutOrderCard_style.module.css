@@ -1,0 +1,152 @@
+.yourBasketContentWrapper {
+    width: auto;
+    height: 250px;
+
+    position: relative;
+    top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-left: 16px;
+    padding-top: 24px;
+    padding-right: 16px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #CDCFD6;
+}
+
+.yourBasketTitle {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 121%;
+    /* or 19px */
+    margin-bottom: 16px;
+
+    /* Prototype/06 */
+
+    color: #515562;
+}
+
+.yourBasketCounterWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.yourBasketCountentWrapperElements {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+}
+
+
+.yourBasketNumsOfText {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+
+
+    /* Prototype/05 */
+
+    color: #616575;
+}
+
+.yourBasketSumOfText {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+    
+    text-transform: capitalize;
+    
+    /* Prototype/05 */
+    
+    color: #616575;
+    
+}
+
+.yourBasketTotal {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.totalStyle {
+    display: flex;
+    flex-direction: row;
+}
+
+.numsWrapper {
+    min-width: 170px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.totalStyleText {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+
+    /* Prototype/07 */
+
+    color: #323540;
+
+}
+
+.placeAnOrderBtn {
+
+    /* padding: 10px 51px; */
+    padding-left: 51px;
+    padding-right: 51px;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    margin-left: -16px;
+    margin-right: -16px;
+    cursor: pointer;
+    /* Proto/05 */
+    z-index: 2;
+    background: #616575;
+}
+
+.placeAnOrderBtn:hover {
+    background: #32343b;
+    
+}
+
+.placeAnOrderBtn div {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    
+
+    position: relative;
+    
+    bottom: 1px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    
+    color: #FFFFFF;
+    
+}

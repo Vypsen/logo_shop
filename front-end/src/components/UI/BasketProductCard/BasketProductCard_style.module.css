@@ -1,0 +1,92 @@
+
+.basketProductContentWrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 584px;
+    /* background: #ffffff; */
+
+}
+
+
+
+.productCardBasket {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 225px;
+    gap: 32px;
+}
+
+.basketProductInfoWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.basketProductTitle {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121%;
+
+    /* identical to box height, or 22px */
+
+    margin-bottom: 8px;
+    margin-top: -8px;
+
+    /* Prototype/07 */
+
+    color: #323540;
+
+}
+
+.basketProductSizeWrapper {
+    display: flex;
+    align-items: baseline;
+
+    margin-bottom: 24px;
+    gap: 8px;
+}
+
+.basketText {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+
+
+    /* Prototype/05 */
+
+    color: #616575;
+}
+
+.amountAndCostWrapper {
+    display: flex;
+    gap: 44px;
+}
+
+.amountAndCostColumnWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exitBtn {
+    display: flex;
+    margin-top: -100px;
+    margin-left: 85px;
+
+}
+
+.exBtnColor {
+    fill: #ADB1BB;
+    cursor: pointer;
+
+}
+
+.exBtnColor:hover {
+    fill: black;
+}

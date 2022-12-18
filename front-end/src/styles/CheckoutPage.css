@@ -1,0 +1,247 @@
+.checkoutPageContentWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 96px;
+    margin-bottom: 96px;
+    margin-top: 32px;
+
+}
+
+.checkoutLinkTreeWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: flex-start;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+.checkoutLinkBackTo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    cursor: pointer;
+    /* Proto/05 */
+
+    color: #616575;
+
+    opacity: 0.8;
+}
+
+.checkoutTitle {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.checkoutMainContentWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 175px;
+    padding-right: 175px;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    align-items: flex-start;
+    align-content: center;
+    min-height: 500px;
+    max-width: 1248px;
+    background: #F7F7FC;
+}
+
+.checkoutInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px 8px 16px;
+    gap: 10px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 121%;
+
+    color: #323540;
+
+    width: 540px;
+    height: 40px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #ADB1BB;
+
+}
+
+.checkoutInput-small {
+    width: 262px;
+}
+
+.checkoutInputsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkoutInputsWrapper p {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 121%;
+    /* identical to box height, or 15px */
+
+
+    /* Proto/06 */
+
+    color: #515562;
+
+}
+
+.micshpWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.NameTelEmailWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.NameTelEmailWrapper div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.MailIndexCityWrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.MailIndexCityWrapper div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.HomePlaceWrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.HomePlaceWrapper div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkoutRadioBtnsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    margin-bottom: 31px;
+    gap: 5px;
+}
+
+.checkoutLabelWrapper {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-left: 24px;
+    min-width: 470px;
+    min-height: 65px;
+
+    background: white;
+    border-top: 1px solid #CDCFD6;
+    border-left: 1px solid #CDCFD6;
+    border-right: 1px solid #CDCFD6;
+}
+
+.checkoutLabelWrapper-bottom {
+    border-bottom: 1px solid #CDCFD6;
+}
+
+.checkoutRadioBtnText {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+
+    /* Proto/05 */
+    opacity: 0.8;
+    color: #616575;
+}
+
+.checkoutRadioBtnText-active {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+
+    /* Proto/07 */
+
+    color: #000000;
+}
+
+.checkoutCommentWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.checkoutCommentTextArea {
+    box-sizing: border-box;
+
+    padding: 8px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+
+    /* Proto/07 */
+
+    color: #323540;
+
+    width: 540px;
+    height: 80px;
+    resize: none;
+    background: #FFFFFF;
+    
+    border: 1px solid #9CA0AB;
+}

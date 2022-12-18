@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SvgSelector } from '../../../utils/SVG/SvgSelector';
 import { CatalogModalWindow } from '../CatalogModalWindow/CatalogModalWindow';
 import './Navbar_style.css'
@@ -9,6 +9,8 @@ import CatalogContent from './CatalogContent/CatalogContent';
 import MainPage from '../../../pages/MainPage';
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
 
     const [catalogModal, setCatalogModal] = useState(false);
 
@@ -66,7 +68,7 @@ const Navbar = () => {
                     <div className='navbar__items' onClick={() => setCatalogModal(false)}>
                         <div className='mediaIcon__down'>
                             <SvgSelector id={icons[2]}/>
-                            <div><Link className='grey_underlined__text'>Избранное</Link></div>
+                            <div><Link to="favourites" className='grey_underlined__text'>Избранное</Link></div>
                         </div>
                         <div className='mediaIcon__down'>
                             <SvgSelector id={icons[3]}/>
