@@ -1,0 +1,101 @@
+.aboutPageWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 228px;
+    padding-top: 57px;
+    padding-right: 256px;
+    padding-bottom: 96px;
+    max-width: 1440px;
+}
+
+.infoText {
+    position: absolute;
+    top: 300px;
+    margin-left: 250px;
+}
+
+.termsOfReturn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+}
+
+.aboutPageTextWrapper {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    
+    margin-bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    
+    color: #515562;    
+}
+
+.aboutPageTextWrapperLi {
+    margin-left: 18px;
+}
+
+.aboutPageTitleWrapper {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+
+    margin-bottom: 16px;
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: #323540;
+}
+
+.swiperSSS {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .swiperSSS-slide {
+    text-align: center;
+    font-size: 18px;
+    background: rgb(255, 255, 255);
+    
+    padding-left: 26px;
+    /* Center slide text vertically */
+  }
+  
+  .swiperSSS-slide img {
+    width: 266px;
+    height: 154px;
+  }
+  
+
+.button-prev-slide {
+    position: relative;
+    bottom: 90px;
+    max-width: 10px;
+    max-height: 20px;
+
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+.button-next-slide {
+    position: relative;
+    bottom: 110px;
+    left: 940px;
+
+    z-index: 2;
+
+    max-width: 10px;
+    max-height: 20px;
+    cursor: pointer;
+}

@@ -31,17 +31,17 @@ const Navbar = () => {
                 <div className='navbar__up' onClick={() => setCatalogModal(false)}>
                     <div className='navbar__links'>
                         <Link className='white_underlined__text'>Контакты</Link>
-                        <Link className='white_underlined__text'>О нас</Link>
+                        <Link to={"about"}className='white_underlined__text'>О нас</Link>
                         <Link className='white_underlined__text'>Доставка</Link>
                     </div>
                     <div className='navbar__links'>
                         <div className='mediaIcon__up'>
                             <SvgSelector id={icons[0]}/>
-                            <Link className='white_underlined__text'>logo</Link>
+                            <a href="http://avito.ru" className='white_underlined__text'>logo</a>
                         </div>
                         <div className='mediaIcon__up'>
                             <SvgSelector id={icons[1]}/>
-                            <Link className='white_underlined__text'>Написать нам</Link>
+                            <a href="https://www.whatsapp.com/" className='white_underlined__text'>Написать нам</a>
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,9 @@
 .swiperHorizontal {
   width: 1248px;
   height: 490px;
-  left: -34px;
 }
 
-.swiper-slide {
+.swiperHorizontal-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
