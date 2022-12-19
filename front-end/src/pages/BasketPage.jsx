@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import BasketAPI from '../API/BasketAPI'
+import { useFetching } from '../components/hooks/useFetching'
 import { AboutOrderCard } from '../components/UI/AboutOrderCard/AboutOrderCard'
 import BasketProductCard from '../components/UI/BasketProductCard/BasketProductCard'
 import SquareSmallPlate from '../components/UI/SquareSmallPlate/SquareSmallPlate'
@@ -9,6 +11,16 @@ import '../styles/BasketPage.css'
 const BasketPage = () => {
 
     const navigate = useNavigate()
+
+    const [fetchCartData, isCartDataLoading, errorData] = useFetching(async () => {
+        const response = await BasketAPI.getCartData()
+    })
+
+    
+    useEffect(() => {
+      fetchCartData()
+    }, [])
+    
 
     return (
         <div className='basketPageContentWrapper'>

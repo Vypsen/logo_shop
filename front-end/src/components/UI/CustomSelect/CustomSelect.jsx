@@ -11,7 +11,7 @@ const CustomSelect = ({options, value, onChange, defaultValue=''}) => {
         >
             <option disabled value="" className={custSel.CustomOptionInvisible}>{defaultValue}</option>
             {options.map((op) => 
-                <option key={op.id} value={op.size_name}>
+                <option key={op.id} value={op.id}>
                     {op.size_name}
                     </option>
             )}

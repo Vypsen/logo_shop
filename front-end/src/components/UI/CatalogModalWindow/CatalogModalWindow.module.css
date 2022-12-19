@@ -14,9 +14,10 @@
 .catalogModalWindowContent {
     padding: 56px 0 0 96px;
     width: 1440px;
-    height: 539px;
-    background: rgb(255, 255, 255);
     min-width: 250px;
+    min-height: 539px;
+    padding-bottom: 96px;
+    background: rgb(255, 255, 255);
     position: absolute;
 }
 

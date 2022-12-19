@@ -12,6 +12,7 @@ import ProductPage from '../pages/ProductPage';
 import Layout from './Layout';
 import SucessfullApplication from '../pages/SucessfullApplicationPage';
 import { FavoritePage } from '../pages/FavoritePage';
+import { AuthTest } from '../pages/AuthTest';
 
 const AppRouter = () => {
 
@@ -30,6 +31,7 @@ const AppRouter = () => {
                     <Route path='about' element={<AboutPage/>}/>
                     <Route path='order_success' element={<SucessfullApplication/>}/>
                     <Route path='favourites' element={<FavoritePage/>}/>
+                    <Route path='login' element={<AuthTest/>}/>
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Route>
             </Routes>

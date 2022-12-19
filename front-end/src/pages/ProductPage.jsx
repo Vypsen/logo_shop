@@ -21,6 +21,7 @@ import Loader from '../components/UI/Loader/Loader';
 import { Link, useParams } from 'react-router-dom';
 import ColorCircle from '../components/UI/ColorCircles/ColorCircles';
 import CustomSelect from '../components/UI/CustomSelect/CustomSelect';
+import BasketAPI from '../API/BasketAPI';
 
 const ProductPage = () => {
 
@@ -81,7 +82,7 @@ const ProductPage = () => {
             if (colorsData[i].color_name === circleColor)
             {
                 colorsArray.push({st: true, col: colorsData[i].color_name})
-                setSelectedColor(colorsData[i].color_name)
+                setSelectedColor(colorsData[i].id)
             }
             else {
                 colorsArray.push({st: false, col: colorsData[i].color_name})
@@ -106,6 +107,20 @@ const ProductPage = () => {
         console.log(selectedAmount)
         console.log(selectedSize)
         console.log(selectedColor)
+        BasketAPI.pushCartData(
+            {"modifications": [{      
+                "product_id": parseInt(otherInfoData.id, 10),
+                "color_id": parseInt(selectedColor, 10),
+                "size_id": parseInt(selectedSize, 10),
+                "quantity": parseInt(selectedAmount, 10)
+            },
+            {      
+                "product_id": 111,
+                "color_id": 32,
+                "size_id": 31,
+                "quantity": parseInt(selectedAmount, 10)
+            }
+        ]})
     }
 
     return (
