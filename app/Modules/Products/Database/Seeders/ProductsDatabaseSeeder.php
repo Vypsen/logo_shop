@@ -9,6 +9,7 @@ use App\Modules\Products\Entities\ProductCategory;
 use App\Modules\Products\Entities\Size;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductsDatabaseSeeder extends Seeder
 {
@@ -45,17 +46,13 @@ class ProductsDatabaseSeeder extends Seeder
             $brand = Brand::inRandomOrder()->first();
             $product->brand()->associate($brand);
             $product->category()->associate($category);
-
             $product->save();
 
-            $product
-                ->colors()
-                ->attach($colorsIds->random(random_int(1, count($colorsIds))));
-
-            if($faker->boolean(70)){
-                $product
-                    ->sizes()
-                    ->attach($sizesIds->random(random_int(1, count($sizesIds))));
+            for ($j = 0; $j < random_int(2, 5); ++$j){
+                $product->colors()->save(
+                    $colorsIds->random(),
+                    array('size_id' => $sizesIds->random()->id,
+                        'count_products' => random_int(1, 50)));
             }
         }
     }

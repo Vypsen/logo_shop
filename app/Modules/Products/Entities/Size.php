@@ -32,7 +32,12 @@ class Size extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(
+            Product::class,
+            'size_color_products',
+            'size_id',
+            'product_id'
+        );
     }
 
     protected static function newFactory()

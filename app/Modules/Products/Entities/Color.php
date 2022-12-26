@@ -36,7 +36,12 @@ class Color extends Model
 
     public function product(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(
+            Product::class,
+            'size_color_products',
+            'color_id',
+            'product_id'
+        );
     }
 
     protected static function newFactory()

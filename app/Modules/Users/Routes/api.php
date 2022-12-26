@@ -13,7 +13,7 @@ use App\Modules\Users\Http\Controllers\AuthController;
 |
 */
 
-Route::prefix('auth')->middleware('api')->group(function () {
+Route::prefix('auth')->middleware('api_session')->group(function () {
     Route::post('sendSms', AuthController::class . '@createVerifyCode');
     Route::post('checkSmsCode', AuthController::class . '@checkSmsCode');
 });

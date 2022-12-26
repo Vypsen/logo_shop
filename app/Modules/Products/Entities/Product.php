@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /**
  * App\Modules\Products\Entities\Product
@@ -84,12 +85,22 @@ class Product extends Model
 
     public function colors(): BelongsToMany
     {
-        return $this->belongsToMany(Color::class, 'products_colors');
+        return $this->belongsToMany(
+            Color::class,
+            'size_color_products',
+            'product_id',
+            'color_id'
+        )->withPivot('size_id');
     }
 
     public function sizes(): BelongsToMany
     {
-        return $this->belongsToMany(Size::class, 'products_sizes');
+        return $this->belongsToMany(
+            Size::class,
+            'size_color_products',
+            'product_id',
+            'size_id'
+        )->withPivot('color_id');
     }
 
     public function images(): HasMany

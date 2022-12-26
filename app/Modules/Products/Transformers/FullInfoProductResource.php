@@ -28,8 +28,8 @@ class FullInfoProductResource extends JsonResource
             'is_new' => $this->is_new,
             'category' => CategoryResource::make($this->category),
             'attribute' => AttributeValueResource::collection($this->sortedAttributeValues),
-            'colors' => ColorResource::collection($this->colors),
-            'sizes' => SizeResource::collection($this->sizes),
+            'colors' => ColorResource::collection($this->colors->unique()),
+            'sizes' => SizeResource::collection($this->sizes->unique()),
             'images' => ImageResource::collection($this->images),
             'brand' => BrandResource::make($this->brand),
         ];

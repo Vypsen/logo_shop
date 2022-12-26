@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 
 class ProductCategorySeeder extends Seeder
 {
-    private const DEPTH = 4;
+    private const DEPTH = 2;
     /**
      * Run the database seeds.
      *
