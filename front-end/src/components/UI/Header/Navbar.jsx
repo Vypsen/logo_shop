@@ -7,13 +7,19 @@ import './Navbar_style.css'
 import { icons } from '../../../store/constants';
 import CatalogContent from './CatalogContent/CatalogContent';
 import MainPage from '../../../pages/MainPage';
+import { ModalWindow } from '../ModalWindow/ModalWindow';
+import { AuthContent } from '../../../pages/AuthContent';
 
 const Navbar = () => {
 
     const navigate = useNavigate()
 
     const [catalogModal, setCatalogModal] = useState(false);
+    const [modalWindow, setModalWindow] = useState(false)
 
+    const authBtn = () => {
+        modalWindow ? setModalWindow(false) : setModalWindow(true)
+    }
     const catalogBtn = () => {
         catalogModal ? setCatalogModal(false) : setCatalogModal(true)
     }
@@ -29,6 +35,9 @@ const Navbar = () => {
             <CatalogModalWindow visible={catalogModal} setVisible={setCatalogModal}>
                 <CatalogContent/>
             </CatalogModalWindow>
+            <ModalWindow visible={modalWindow} setVisible={setModalWindow}>
+                <AuthContent/>
+            </ModalWindow>
             <div className='navbar'>
                 <div className='navbar__up' onClick={() => setCatalogModal(false)}>
                     <div className='navbar__links'>
@@ -72,8 +81,11 @@ const Navbar = () => {
                         </div>
                         <div className='mediaIcon__down'>
                             <SvgSelector id={icons[3]}/>
-                            <div>
+                            {/* <div>
                                 <Link className='grey_underlined__text'>Вход/Регистрация</Link>
+                            </div> */}
+                            <div className='grey_underlined__text' onClick={() => authBtn()}>
+                                Вход/Регистрация
                             </div>
                         </div>
                         <div className='mediaIcon__down'>

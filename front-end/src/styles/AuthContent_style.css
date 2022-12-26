@@ -1,0 +1,269 @@
+.authContentWrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.confirmationText {
+    
+    height: 60px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+    /* Proto/07 */
+
+    color: #323540;
+
+}
+
+.notifyText {
+    width: 278px;
+    height: 18px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    /* Proto/06 */
+
+    color: #515562;
+}
+
+.inputPhoneNumber {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+
+    width: 304px;
+    height: 48px;
+
+    background: #F7F7FC;
+    margin-bottom: 24px;
+    border: 1px solid #ADB1BB;
+}
+
+.inputPhoneNumber-content {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 121%;
+    /* or 19px */
+    text-align: center;
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.inputCodeNumber {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+    margin-bottom: 24px;
+    width: 304px;
+    height: 48px;
+
+    background: #F7F7FC;
+
+    border: 1px solid #ADB1BB;
+}
+
+.inputCodeNumber-content {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 121%;
+
+
+    text-align: center;
+    letter-spacing: 10px;
+
+    color: #323540;
+
+}
+
+.policyPrivacyText {
+    width: 304px;
+    height: 30px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 32px;
+
+    color: #828282;
+}
+
+.getCodeBtn {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+    gap: 10px;
+
+    width: 304px;
+    height: 48px;
+
+    background: #616575;
+
+    cursor: pointer;
+    border: 1px solid #616575;
+}
+
+.getCodeBtn:hover {
+    background: rgb(44, 44, 44);
+}
+
+.getCodeBtn-content {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.getCodeBtn-inActive {
+    background: #6165753d;
+    color: #000000;
+    cursor: default;
+}
+
+.getCodeBtn-inActive:hover {
+    background: #6165753d;
+    color: #000000;
+    cursor: default;
+}
+
+
+.reSendCodeStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    /* or 21px */
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    gap: 10px;
+    /* Proto/06 */
+
+    color: #515562;
+}
+
+.reSendCodeStyle h2 {
+    font-size: 14px;
+}
+
+.reSendCodeStyle-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    text-decoration: underline;
+    cursor: pointer;
+    gap: 10px;
+    /* Proto/06 */
+
+    color: #000000b7;
+}
+
+.reSendCodeStyle-active:hover {
+    color: #000000;
+}
+
+.reWritePhoneNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    /* or 21px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    text-decoration: underline;
+    cursor: pointer;
+    gap: 10px;
+    /* Proto/06 */
+
+    color: #000000a4;
+}
+
+.reWritePhoneNumber:hover {
+    color: #000000;
+}

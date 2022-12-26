@@ -8,9 +8,9 @@ export default class AuthAPI {
         .then(function (response) {
             console.log(response);
         })
-        // .catch(function (error) {
-        //     console.log(error);
-        // });
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     static async sendCode(code_number) {
@@ -20,6 +20,9 @@ export default class AuthAPI {
         .then(function (response) {
             console.log(response);
         })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     static async getCodeFetch(phone_number) {
