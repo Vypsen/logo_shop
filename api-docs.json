@@ -739,6 +739,9 @@
                                 },
                                 "color_name": {
                                     "type": "string"
+                                },
+                                "hex_color": {
+                                    "type": "string"
                                 }
                             }
                         }

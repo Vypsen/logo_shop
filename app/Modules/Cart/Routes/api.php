@@ -12,7 +12,7 @@ use App\Modules\Cart\Http\Controllers\CartController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::prefix('cart')->middleware('auth.optional:sanctum')->group(function () {
+Route::prefix('cart')->middleware('api_session')->group(function () {
     Route::post('set_quantity', CartController::class . '@setQuantity');
     Route::get('show', CartController::class . '@show');
 });

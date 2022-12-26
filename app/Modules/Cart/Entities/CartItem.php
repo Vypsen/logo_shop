@@ -42,6 +42,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereItemSale($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereSizeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|CartItem whereTotalSale($value)
+ * @property-read Color $color
+ * @property-read Size $size
  */
 class CartItem extends Model
 {
