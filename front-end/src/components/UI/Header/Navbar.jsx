@@ -17,11 +17,18 @@ const Navbar = () => {
     const [catalogModal, setCatalogModal] = useState(false);
     const [modalWindow, setModalWindow] = useState(false)
 
+    const [searcherValue, setSearcherValue] = useState('')
+
     const authBtn = () => {
         modalWindow ? setModalWindow(false) : setModalWindow(true)
     }
     const catalogBtn = () => {
         catalogModal ? setCatalogModal(false) : setCatalogModal(true)
+    }
+
+    const searchFun = (event) => {
+        event.preventDefault();
+        navigate("/search/1/" + searcherValue)
     }
 
     let arr = []
@@ -69,8 +76,14 @@ const Navbar = () => {
                                 <SvgSelector id={icons[6]}/>
                             </div>
                             <div onClick={() => setCatalogModal(false)}>
-                                <SvgSelector id={icons[7]}/>
-                                <input className='searchfield'></input>
+                                <form onSubmit={searchFun}><div className='searchIconClickStyle' onClick={searchFun}/>
+                                    <SvgSelector id={icons[7]}/>
+                                    <input 
+                                        className='searchfield'
+                                        value={searcherValue}
+                                        onChange={e => setSearcherValue(e.target.value)}
+                                    />
+                                </form>
                             </div>  
                         </div>
                     </div>

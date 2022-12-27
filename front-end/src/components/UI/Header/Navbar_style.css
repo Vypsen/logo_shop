@@ -40,6 +40,16 @@
     padding: 0 52px;
 }
 
+.searchIconClickStyle {
+    position: absolute;
+    cursor: pointer;
+    margin-left: 430px;
+    margin-top: 8px;
+    width: 32px;
+    height: 32px;
+    z-index: 1244;
+}
+
 .searchfield {
     display: flex;
     flex-direction: row;

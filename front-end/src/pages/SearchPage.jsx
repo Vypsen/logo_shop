@@ -9,14 +9,16 @@ import VerticalSmallPlate from '../components/UI/VerticalSmallPlate/VerticalSmal
 import { VerticalSmallPlateData } from '../components/UI/VerticalSmallPlate/VerticalSmallPlateData/VerticalSmallPlateData'
 import "../styles/Catalog.css"
 
-const Catalog = () => {
+import jesusImage from '../assets/NotFound.png'
+
+const SearchPage = () => {
 
     const params = useParams()
     console.log(params)
     const [isL2, setIsL2] = useState({Loading: true})
 
     const [optionsToSelect, setOptionsToSelect] = useState([{id: 0, size_name: 'asc'}, {id: 1, size_name: 'decs'}])
-    const [selectedSort, setSelectedSort] = useState()
+    const [selectedSort, setSelectedSort] = useState('')
     const [catalogList, setCatalogList] = useState([])
     const [categoryData, setCategoryData] = useState([])
     const [productsListData, setProductsListData] = useState([])
@@ -26,6 +28,7 @@ const Catalog = () => {
     const [totalPages, setTotalPage] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
     const [currentCategory, setCurentCategory] = useState("")
+    const [countProducts, setCountProducts] = useState(1)
 
     let pagesArray = []
     for (let i = 0; i < totalPages; i++)
@@ -33,14 +36,15 @@ const Catalog = () => {
         pagesArray.push(i + 1)
     }
 
-    const [fetchData, isDataLoading, dataError] = useFetching(async (category_name, currentPage, sort_mode) => {
+    const [fetchData, isDataLoading, dataError] = useFetching(async (currentPage, search_query) => {
         const [
             responseCategoryData ,
             responseProductsListData ,
             responseFiltersData ,
             responseLinksData ,
             responseMetaData ,
-        ] = await CatalogListAPI.getAll(category_name, currentPage, sort_mode)
+            responseCountProducts,
+        ] = await CatalogListAPI.searchBy(currentPage, search_query)
         // console.log(responseCategoryData)
         // console.log(responseProductsListData)
         // console.log(responseFiltersData)
@@ -53,8 +57,10 @@ const Catalog = () => {
         setMetaData(responseMetaData)
         setTotalPage(responseMetaData.last_page)
         setCurrentPage(responseMetaData.current_page)
-        setCurentCategory(params.category ? params.category + "/": "")
+        setCountProducts(responseCountProducts)
     })
+
+    
 
     const getSortedMethod = (sortMethod) => {
         setSelectedSort(sortMethod)
@@ -64,23 +70,16 @@ const Catalog = () => {
     useEffect(() => {
         setIsL2({Loading: true})
         
-        if (selectedSort)
-        {
-            fetchData(params.category, params.page, selectedSort)
-        }
-        else
-        {
-            fetchData(params.category, params.page)
-        }
+        fetchData(params.page, params.search_query)
 
         setIsL2({Loading: false})
 
-    }, [setIsL2, params, selectedSort])
+    }, [setIsL2, params])
 
 
     const changePage = (page) => {
         setCurrentPage(page)
-        fetchData(params.category, page) 
+        fetchData(page, params.search_query) 
     }
 
 
@@ -88,7 +87,29 @@ const Catalog = () => {
         <div className='contentCatalogWrapper'>
             <div className='treeText'>Главная / Каталог</div>
             <div className='contentSpace'>
-                <h1>Каталог</h1>
+            {isDataLoading
+            ?
+                <>
+                <div className='nothingToFind'> Поиск...</div>
+                </>
+            :
+                <>
+                    <div className='nothingToFind'>
+                        {(countProducts === 0)
+                            ?   <>
+                                    <div>
+                                        По запросу "{params.search_query}" ничего не найдено
+                                    </div>
+                                </>
+                            : <>
+                                    <div>
+                                        По запросу "{params.search_query}" найдено
+                                    </div>
+                            </>
+                        }
+                    </div>
+                </>
+            }
                 <CustomSelect
                     value={selectedSort}
                     onChange={getSortedMethod}
@@ -97,6 +118,26 @@ const Catalog = () => {
                 />
             </div>
             <hr className='lineBetweenNameAndProducts'/>
+            {isDataLoading
+                ?
+                    <>
+                    </>
+                :
+                    <>
+                        {(countProducts === 0)
+                            ? 
+                                <>
+                                    <img className='jesusStyle' width={600} height={800} src={jesusImage}></img>
+                                </>
+                            :
+                                <>
+                                </>
+
+                        }
+                    </>
+            }
+            
+
             <div className='productsWrapper'>
                 {isDataLoading
                 ?<>
@@ -171,7 +212,7 @@ const Catalog = () => {
             ?<div></div>
             :
             <div className='pageWrapper'>
-                <Link to={"/catalog/" + currentCategory + (currentPage - 1)} onClick={() => changePage(currentPage - 1)}>
+                <Link to={"/catalog/" + (currentPage - 1)} onClick={() => changePage(currentPage - 1)}>
                     <div className={currentPage === 1 ? 'arrowsContainer arrowInviz' : 'arrowsContainer'}>
                         <svg width="17" height="6" viewBox="0 0 17 6" fill="none" xmlns="http://www.w3.org/2000/svg" className='arrowToBack'>
                             <path d="M1 2.5H0.5V3.5H1V2.5ZM17 3L12 0.113249V5.88675L17 3ZM1 3.5H12.5V2.5H1V3.5Z" fill="#616575"/>
@@ -180,11 +221,11 @@ const Catalog = () => {
                     </div>
                 </Link>
                 {pagesArray.map((p) => 
-                    <Link key={p} to={"/catalog/" + currentCategory + p} onClick={() => changePage(p)}>
+                    <Link key={p} to={"/catalog/" + p} onClick={() => changePage(p)}>
                         <span key={p} className={currentPage === p ? 'page pageSelected' : 'page'}>{p}</span>
                     </Link> 
                 )}
-                <Link to={"/catalog/" + currentCategory + (currentPage + 1)} onClick={() => changePage(currentPage + 1)}>
+                <Link to={"/catalog/" + (currentPage + 1)} onClick={() => changePage(currentPage + 1)}>
                     <div className={currentPage === totalPages ? 'arrowsContainer arrowInviz' : 'arrowsContainer'}>
                         <span className='nextPage'>Далее</span>
                         <svg width="17" height="6" viewBox="0 0 17 6" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -200,4 +241,4 @@ const Catalog = () => {
     )
 }
 
-export default Catalog
+export default SearchPage

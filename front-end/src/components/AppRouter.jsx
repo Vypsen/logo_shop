@@ -13,6 +13,7 @@ import Layout from './Layout';
 import SucessfullApplication from '../pages/SucessfullApplicationPage';
 import { FavoritePage } from '../pages/FavoritePage';
 import { AuthContent } from '../pages/AuthContent';
+import SearchPage from '../pages/SearchPage';
 
 const AppRouter = () => {
 
@@ -22,6 +23,7 @@ const AppRouter = () => {
                 <Route path='/' element={<Layout/>}>
                     <Route index element={<MainPage/>}/>
                     <Route path='basket_page' element={<BasketPage/>}/>
+                    <Route path='search/:page/:search_query' element={<SearchPage/>}/>
                     <Route path='catalog/*' element={<Catalog/>}/>
                     <Route path='catalog/:page' element={<Catalog/>}/>
                     <Route path='catalog/:category/:page' element={<Catalog/>}/>

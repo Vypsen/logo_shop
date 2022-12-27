@@ -129,3 +129,35 @@
 .arrowToBack {
     transform: scale(-1, -1);
 }
+
+
+
+/* searchPage */
+
+.nothingToFind {
+    width: 500px;
+    height: 25px;
+    left: 96px;
+    top: 226px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    margin-top: 18px;
+
+    /* Proto/07 */
+
+    color: #323540;
+}
+
+.jesusStyle {
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-bottom: -500px;
+}

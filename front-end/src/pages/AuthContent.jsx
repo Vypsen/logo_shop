@@ -26,7 +26,7 @@ export const AuthContent = () => {
         validPhoneNumber = validPhoneNumber.replace(/[^+\d]/g, '');
         
         setCheckGetOrConfirmCode(false)
-        // AuthAPI.getCode(validPhoneNumber)
+        AuthAPI.getCode(validPhoneNumber)
 
         // AuthAPI.getCodeFetch(phoneNumber)
     }
