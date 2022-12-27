@@ -22,6 +22,8 @@ import { Link, useParams } from 'react-router-dom';
 import ColorCircle from '../components/UI/ColorCircles/ColorCircles';
 import CustomSelect from '../components/UI/CustomSelect/CustomSelect';
 import BasketAPI from '../API/BasketAPI';
+import { ModalWindow } from '../components/UI/ModalWindow/ModalWindow';
+
 
 const ProductPage = () => {
 
@@ -43,6 +45,9 @@ const ProductPage = () => {
     const [selectedSize, setSelectedSize] = useState('')
     const [selectedAmount, setSelectedAmount] = useState(1)
     const [selectedColor, setSelectedColor] = useState('')
+
+    const [modalWindowPP, setModalWindowPP] = useState(false)
+
     // setSlug("eos")
 
     const [isL2, setIsL2] = useState({Loading: true})
@@ -64,7 +69,8 @@ const ProductPage = () => {
         setSizesData(responseSizesData)
         setOtherInfoData(responseOtherInfoData)
         setBigPlateImage(responseImagesData[0].path)
-        
+        console.log(responseSizesData)
+        console.log(colorsData)
     })
 
     useEffect(() => {
@@ -75,6 +81,10 @@ const ProductPage = () => {
     }, [setIsL2])
 
 
+    const errorBtn = () => {
+        modalWindowPP ? setModalWindowPP(false) : setModalWindowPP(true)
+    }
+
     function colorSelector(circleColor) {
         colorsArray.splice(0)
         for (let i = 0; i < colorsData.length; i++)
@@ -83,6 +93,7 @@ const ProductPage = () => {
             {
                 colorsArray.push({st: true, col: colorsData[i].color_name})
                 setSelectedColor(colorsData[i].id)
+                console.log(colorsData[i].id)
             }
             else {
                 colorsArray.push({st: false, col: colorsData[i].color_name})
@@ -107,26 +118,76 @@ const ProductPage = () => {
         console.log(selectedAmount)
         console.log(selectedSize)
         console.log(selectedColor)
-        BasketAPI.pushCartData(
-            {"modifications": [{      
-                "product_id": parseInt(otherInfoData.id, 10),
-                "color_id": parseInt(selectedColor, 10),
-                "size_id": parseInt(selectedSize, 10),
-                "quantity": parseInt(selectedAmount, 10)
-            },
-            {      
-                "product_id": 111,
-                "color_id": 32,
-                "size_id": 31,
-                "quantity": parseInt(selectedAmount, 10)
-            }
-        ]})
+        // if (selectedSize === '')
+        // {
+        //     alert("Пиздец ты долбаёб, выбери, сука, размер!")
+        // }
+        // if (selectedColor === '')
+        // {
+        //     alert("Пиздец ты долбаёб, выбери, сука, цвет!")
+        // }
+        if (sizesData.length <= 0 || colorsData.length <= 0)
+        {
+            console.log("хуйня давай по новой")
+        }
+        else {
+            BasketAPI.pushCartData(
+                {"modifications": [{      
+                    "product_id": parseInt(otherInfoData.id, 10),
+                    "color_id": parseInt(selectedColor, 10),
+                    "size_id": parseInt(selectedSize, 10),
+                    "quantity": parseInt(selectedAmount, 10)
+                }
+            ]})
+        }
     }
 
     return (
         <div className='contentWrapper'>
             <div>Главная / Каталог / Жакеты и пиджаки / Жакет Weekend Max Mara ONDINA</div> {/* тестовое древо */}
             <div className='contentWrapperElements'>
+                <ModalWindow visible={modalWindowPP} setVisible={setModalWindowPP} CN={'test214'}>
+                    {(selectedSize === '' && selectedColor === '')
+                        ? 
+                            <>
+                                <div className='errorModalWindow'>
+                                    <div>Вы не выбрали размер и цвет</div>
+                                    <div className='errorOKBtn' onClick={errorBtn}>ОК</div>
+                                </div>
+                            </>
+                        :
+                            <>
+                                {(selectedSize === '')
+                                    ?
+                                        <>
+                                            <div className='errorModalWindow'>
+                                                <div>Вы не выбрали размер и цвет</div>
+                                                <div className='errorOKBtn' onClick={errorBtn}>ОК</div>
+                                            </div>
+                                        </>
+                                    :
+                                        <>
+                                            {(selectedColor === '')
+                                                ?
+                                                    <>
+                                                        <div className='errorModalWindow'>
+                                                            <div>Вы не выбрали цвет</div>
+                                                            <div className='errorOKBtn' onClick={errorBtn}>ОК</div>
+                                                        </div>
+                                                    </>
+                                                :
+                                                    <>
+                                                        <div className='errorModalWindow'>
+                                                            <div>Товар успешно добавлен в корзину</div>
+                                                            <div className='errorOKBtn' onClick={errorBtn}>ОК</div>
+                                                        </div>
+                                                    </>
+                                            }
+                                        </>
+                                }
+                            </>
+                    }
+                </ModalWindow>
                 <div className='sliderWrapper'>
                     {/* {isDLoading
                         ?<div><Loader/></div>
@@ -210,6 +271,7 @@ const ProductPage = () => {
                             }
                         </div>
                     </div>
+                    
                     <div className='orderContentElements'>
                         <div className='priceStyle'>{otherInfoData.price} ₽</div>
                         <div className='orderContentElementsFunctionalBtns'>
@@ -220,7 +282,19 @@ const ProductPage = () => {
                                     onChange={getAmount}
                                     />
                             </div>
-                            <div className='toCartElementStyle' onClick={() => getDataToCart()}>
+                            <div className='toCartElementStyle' onClick={() => {
+                                    if(selectedSize === '')
+                                    {   
+                                        errorBtn()
+                                    } else if (selectedColor === '')
+                                    {
+                                        errorBtn()
+                                    }
+                                    else {
+                                        getDataToCart()
+                                        errorBtn()
+                                    }
+                                }}>
                                 <div>
                                     В корзину
                                 </div>

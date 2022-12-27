@@ -11,8 +11,8 @@
 .modalWindowContent {
     padding: 0;
     background: white;
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 200px;
+    min-height: 100px;
 }
 
 .modalWindow.active {
@@ -22,3 +22,6 @@
     z-index: 22222;
 }
 
+.test214 {
+    border-radius: 10px;
+}

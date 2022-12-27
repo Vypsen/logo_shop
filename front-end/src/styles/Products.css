@@ -232,6 +232,10 @@
     background: #616575;
 }
 
+.toCartElementStyle:hover {
+    background: #2c2e36;
+}
+
 .toCartElementStyle div {
     font-family: 'PT Root UI';
     font-style: normal;
@@ -258,3 +262,61 @@
 .colorStrokeDisabled {
     stroke-width: 1px;
 }
+
+.errorModalWindow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 18px;
+    padding: 16px;
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Proto/07 */
+
+    color: #323540;
+
+}
+
+.errorOKBtn {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 40px;
+    gap: 10px;
+    margin-top: 14px;
+    cursor: pointer;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+
+    text-align: center;
+    
+    color: #FFFFFF;
+
+    width: 80px;
+    height: 48px;
+
+    background: #616575;
+
+    border: 1px solid #616575;
+
+}
+
+.errorOKBtn:hover {
+    background: #31333b;
+}
+
