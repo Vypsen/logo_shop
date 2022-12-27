@@ -296,3 +296,25 @@
     margin-left: 75px;
     margin-top: 75px;
 }
+
+.mainPagePriceLine {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mainPageStrikethrough {
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 121%;
+
+    margin-top: 24px;
+    /* identical to box height, or 22px */
+
+    text-decoration: line-through;
+
+
+    color: #515562b0;
+}

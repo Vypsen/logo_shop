@@ -6,6 +6,7 @@ import { useFetching } from '../components/hooks/useFetching'
 import CustomSelect from '../components/UI/CustomSelect/CustomSelect'
 import Loader from '../components/UI/Loader/Loader'
 import VerticalSmallPlate from '../components/UI/VerticalSmallPlate/VerticalSmallPlate'
+import { VerticalSmallPlateData } from '../components/UI/VerticalSmallPlate/VerticalSmallPlateData/VerticalSmallPlateData'
 import "../styles/Catalog.css"
 
 const Catalog = () => {
@@ -99,13 +100,15 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(0, 3).map((pld) =>
-                        <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
-                            <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale}>
-                                <img width={288} height={407} src={pld.images[0].path}></img>
-                                <h2>{pld.name}</h2>
-                                <h1>{pld.price} ₽</h1>
-                            </VerticalSmallPlate>
-                        </Link>
+                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                            <VerticalSmallPlateData>
+                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                    <img width={288} height={407} src={pld.images[0].path}></img>
+                                    <h2>{pld.name}</h2>
+                                    <h1>{pld.price} ₽</h1>
+                                </Link>
+                            </VerticalSmallPlateData>
+                        </VerticalSmallPlate>
                     )}
                 </>
                 }
@@ -121,13 +124,15 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(3, 6).map((pld) =>
-                        <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
-                            <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale}>
-                                <img width={288} height={407} src={pld.images[0].path}></img>
-                                <h2>{pld.name}</h2>
-                                <h1>{pld.price} ₽</h1>
-                            </VerticalSmallPlate>
-                        </Link>
+                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                            <VerticalSmallPlateData>
+                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                    <img width={288} height={407} src={pld.images[0].path}></img>
+                                    <h2>{pld.name}</h2>
+                                    <h1>{pld.price} ₽</h1>
+                                </Link>
+                            </VerticalSmallPlateData>
+                        </VerticalSmallPlate>
                     )}
                 </>
                 }
@@ -142,13 +147,15 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(6, 9).map((pld) =>
-                        <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
-                            <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale}>
-                                <img width={288} height={407} src={pld.images[0].path}></img>
-                                <h2>{pld.name}</h2>
-                                <h1>{pld.price} ₽</h1>
-                            </VerticalSmallPlate>
-                        </Link>
+                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                            <VerticalSmallPlateData>
+                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                    <img width={288} height={407} src={pld.images[0].path}></img>
+                                    <h2>{pld.name}</h2>
+                                    <h1>{pld.price} ₽</h1>
+                                </Link>
+                            </VerticalSmallPlateData>
+                        </VerticalSmallPlate>
                     )}
                 </>
                 }

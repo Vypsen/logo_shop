@@ -1,0 +1,49 @@
+.fvpWrapper {
+    padding: 25px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 82px;
+}
+
+.fpsSizes {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: center;
+    margin-top: 16px;
+    margin-bottom: 33px;
+    gap: 4px;
+}
+
+.test {
+    display: flex;
+}
+/* 
+.bl {
+    background: white;
+}
+
+.bl1:hover {
+    min-height: 100px;
+}
+
+.bl:hover {
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);
+}
+
+.bl2 {
+    scale: 0;
+    min-width: 0;
+    background: white;
+
+}
+
+.bl1:hover ~ .bl2 { 
+    scale: 1;
+    
+} 
+ */
+
+/*  */
+

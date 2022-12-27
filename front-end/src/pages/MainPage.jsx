@@ -126,7 +126,7 @@ const MainPage = () => {
 
             <div className='newGoodsWrapper'>
                 <div className='titleText'>
-                    Новое поступление
+                    Новые поступление
                 </div>
                 {isImagesLoading
                 ?   <div className='categoriesWrapperLineBeforeLoading'>
@@ -152,7 +152,18 @@ const MainPage = () => {
                                             <VerticalSmallPlate key={nps.name} isNew={nps.is_new} isSale={nps.is_sale}>
                                                 <img className='verticalSmallPlateImage' alt='' src={nps.images[0].path}></img>
                                                 <h2>{nps.name}</h2>
-                                                <h1>{nps.price} ₽</h1>
+                                                <div className='mainPagePriceLine'>
+                                                    {nps.is_sale
+                                                    ?
+                                                    <>
+                                                        <p className='mainPageStrikethrough'>{nps.price} ₽</p>
+                                                        <h1>{nps.discount_price} ₽</h1>
+                                                    </>
+                                                    :
+                                                    <h1>{nps.price} ₽</h1>
+                                                    }
+                                                </div>
+
                                             </VerticalSmallPlate>
                                     </Link>
 

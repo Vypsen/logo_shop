@@ -1,0 +1,133 @@
+.cntFPS {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px
+}
+
+.cntFPS:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+    min-height: 407px;
+    border-radius: 6px;
+}
+ 
+.cntFPS:hover .cntFPS_secondary {
+
+    display: block;
+}
+
+.cntFPS_main {
+    height: 480px;
+}
+
+.cntFPS_secondary {
+    display: none;
+}
+
+
+.sizeBox {
+    width: 24px;
+    height: 24px;
+    left: 840px;
+    top: 844px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2px;
+    padding-left: 4px;
+
+    color: #616575;
+
+    background: #CDCFD6;
+    opacity: 0.4;
+}
+
+.chooseSizeBoxes {
+    display: flex;
+    cursor: pointer;
+}
+
+.chooseSizeText {
+    width: 119px;
+    height: 17px;
+    left: 576px;
+    top: 847px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 121%;
+    /* identical to box height, or 17px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+.toCartBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 17px;
+    gap: 10px;
+
+    width: 288px;
+    height: 40px;
+    left: 576px;
+    top: 897px;
+
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 121%;
+
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    /* Proto/01 */
+
+    color: #FFFFFF;
+
+    /* Proto/05 */
+
+    background: #616575;
+}
+
+.toCartBtn:hover {
+    background: #2c2e35;
+}
+
+.fpsSizes {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: center;
+    margin-top: 16px;
+    margin-bottom: 33px;
+}

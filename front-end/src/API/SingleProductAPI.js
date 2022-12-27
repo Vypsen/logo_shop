@@ -3,7 +3,7 @@ import axios from "axios";
 const domen = "http://localhost"
 
 export default class SingleProductAPI {
-    static async getAll(_slug='eos') {
+    static async getAll(_slug='est-2') {
         const response = await axios.get(domen + "/api/catalog/product/details/", {
             params: {
                 slug: _slug
