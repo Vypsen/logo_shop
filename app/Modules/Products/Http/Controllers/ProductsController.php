@@ -10,6 +10,7 @@ use App\Modules\Products\Transformers\FullInfoProductResource;
 use App\Modules\Products\Transformers\PreviewProductResource;
 use App\OpenApi\Parameters\Products\FiltersParameters;
 use App\OpenApi\Parameters\Products\ProductParameters;
+use App\OpenApi\RequestBodies\CatalogRequestBody;
 use App\OpenApi\Responses\NotFoundResponse;
 use App\OpenApi\Responses\Products\FullInfoProductResponse;
 use App\OpenApi\Responses\Products\ListProductsResponse;
@@ -25,7 +26,7 @@ class ProductsController extends Controller
      * @return PreviewProductResource|\Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     #[OpenApi\Operation(tags: ['Products'])]
-    #[OpenApi\Parameters(factory: FiltersParameters::class)]
+    #[OpenApi\RequestBody(factory: CatalogRequestBody::class)]
     #[OpenApi\Response(factory: ListProductsResponse::class, statusCode: 200)]
     #[OpenApi\Response(factory: NotFoundResponse::class, statusCode: 404)]
     public function index(CatalogRequest $request)

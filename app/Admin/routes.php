@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use App\Admin\Controllers\UserController;
+use App\Admin\Controllers\ProductController;
 
 Admin::routes();
 
@@ -14,5 +15,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('users', UserController::class);
+    $router->resource('products', ProductController::class);
+    $router->resource('colors', \App\Admin\Controllers\ColorController::class);
 
 });

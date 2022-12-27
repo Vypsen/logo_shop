@@ -7,6 +7,7 @@ use App\Modules\Products\Entities\Product;
 use App\Modules\Products\Entities\Size;
 use App\Modules\Users\Entities\User;
 use Exception;
+use DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -109,28 +110,41 @@ class Cart extends Model
         }
     }
 
+    public function is_notExist(Product $product, Color $color, Size $size)
+    {
+        $productExist = DB::table('size_color_products')
+            ->where('product_id', $product->id)
+            ->where('color_id', $color->id)
+            ->where('size_id', $size->id)
+            ->get();
+
+        return empty($productExist[0]);
+    }
+
     public function setProductQuantity(Product $product, Color $color, Size $size, int $quantity): void
     {
-        $this->fillItemsByProductId();
 
-        $cartItem = $this->itemsByProductId[$product->id] ?? null;
-        if ($cartItem === null) {
-            $cartItem = new CartItem();
-            $cartItem->product_id = $product->id;
-        }
+            $this->fillItemsByProductId();
 
-        $cartItem->item_sale = 0;
-        if ($product->is_sale) {
-            $cartItem->item_sale = $product->price - $product->discount_price;
-        }
-        $cartItem->quantity = $quantity;
-        $cartItem->total_sale = $cartItem->quantity * $cartItem->item_sale;
-        $cartItem->price_item = $product->price;
-        $cartItem->price_total = $cartItem->quantity * $cartItem->price_item;
-        $cartItem->color_id = $color->id;
-        $cartItem->size_id = $size->id;
+            $cartItem = $this->itemsByProductId[$product->id] ?? null;
+            if ($cartItem === null) {
+                $cartItem = new CartItem();
+                $cartItem->product_id = $product->id;
+            }
 
-        $this->itemsByProductId[$product->id] = $cartItem;
+            $cartItem->item_sale = 0;
+            if ($product->is_sale) {
+                $cartItem->item_sale = $product->price - $product->discount_price;
+            }
+            $cartItem->quantity = $quantity;
+            $cartItem->total_sale = $cartItem->quantity * $cartItem->item_sale;
+            $cartItem->price_item = $product->price;
+            $cartItem->price_total = $cartItem->quantity * $cartItem->price_item;
+            $cartItem->color_id = $color->id;
+            $cartItem->size_id = $size->id;
+            $this->itemsByProductId[$product->id] = $cartItem;
+
+
     }
 
     public function recalculateCart(): void

@@ -23,7 +23,16 @@ class CartRequestFormDataRequestBody extends RequestBodyFactory
                             Schema::integer('size_id'),
                             Schema::integer('quantity')
                         )
-                    )
+                    ),
+                    Schema::array('modifications')->items(
+                        Schema::object()->properties(
+                            Schema::integer('product_id'),
+                            Schema::integer('color_id'),
+                            Schema::integer('size_id'),
+                            Schema::integer('quantity')
+                        )
+                    ),
+
                 )
             ));
     }

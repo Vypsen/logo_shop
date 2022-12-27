@@ -137,56 +137,42 @@
                     "Products"
                 ],
                 "summary": "Display a listing of the resource.",
-                "parameters": [
-                    {
-                        "name": "category name",
-                        "in": "query",
-                        "description": "category name",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "article_query",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "search_query",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sort_mode",
-                        "in": "query",
-                        "description": "0 - price asc, 1 - price desc",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
+                "requestBody": {
+                    "description": "catalog",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "category_name": {
+                                        "type": "string"
+                                    },
+                                    "article_query": {
+                                        "type": "string"
+                                    },
+                                    "search_query": {
+                                        "type": "string"
+                                    },
+                                    "sort_mode": {
+                                        "type": "string"
+                                    },
+                                    "filters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "filter": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                ],
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "$ref": "#\/components\/responses\/"
