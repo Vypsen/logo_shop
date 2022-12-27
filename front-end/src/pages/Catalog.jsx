@@ -33,14 +33,14 @@ const Catalog = () => {
         pagesArray.push(i + 1)
     }
 
-    const [fetchData, isDataLoading, dataError] = useFetching(async (category_name, currentPage) => {
+    const [fetchData, isDataLoading, dataError] = useFetching(async (category_name, currentPage, sort_mode) => {
         const [
             responseCategoryData ,
             responseProductsListData ,
             responseFiltersData ,
             responseLinksData ,
             responseMetaData ,
-        ] = await CatalogListAPI.getAll(category_name, currentPage)
+        ] = await CatalogListAPI.getAll(category_name, currentPage, sort_mode)
         // console.log(responseCategoryData)
         // console.log(responseProductsListData)
         // console.log(responseFiltersData)
@@ -63,12 +63,19 @@ const Catalog = () => {
 
     useEffect(() => {
         setIsL2({Loading: true})
-
-        fetchData(params.category, params.page)
+        
+        if (selectedSort)
+        {
+            fetchData(params.category, params.page, selectedSort)
+        }
+        else
+        {
+            fetchData(params.category, params.page)
+        }
 
         setIsL2({Loading: false})
 
-    }, [setIsL2, params])
+    }, [setIsL2, params, selectedSort])
 
 
     const changePage = (page) => {
@@ -100,9 +107,9 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(0, 3).map((pld) =>
-                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                        <VerticalSmallPlate key={pld.id} isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
                             <VerticalSmallPlateData>
-                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                <Link to={"/product_details/" + pld.slug} className="baseStyleLink">
                                     <img width={288} height={407} src={pld.images[0].path}></img>
                                     <h2>{pld.name}</h2>
                                     <h1>{pld.price} ₽</h1>
@@ -124,9 +131,9 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(3, 6).map((pld) =>
-                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                        <VerticalSmallPlate key={pld.id} isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
                             <VerticalSmallPlateData>
-                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                <Link to={"/product_details/" + pld.slug} className="baseStyleLink">
                                     <img width={288} height={407} src={pld.images[0].path}></img>
                                     <h2>{pld.name}</h2>
                                     <h1>{pld.price} ₽</h1>
@@ -147,9 +154,9 @@ const Catalog = () => {
                 :
                 <>
                     {productsListData.slice(6, 9).map((pld) =>
-                        <VerticalSmallPlate isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
+                        <VerticalSmallPlate key={pld.id} isNew={pld.is_new} isSale={pld.is_sale} isSmartVersion={true}>
                             <VerticalSmallPlateData>
-                                <Link key={pld.id} to={"/product_details/" + pld.slug} className="baseStyleLink">
+                                <Link to={"/product_details/" + pld.slug} className="baseStyleLink">
                                     <img width={288} height={407} src={pld.images[0].path}></img>
                                     <h2>{pld.name}</h2>
                                     <h1>{pld.price} ₽</h1>

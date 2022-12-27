@@ -3,7 +3,7 @@ import axios from "axios";
 const domen = "http://localhost"
 
 export default class CatalogListAPI {
-    static async getAll(category="", _page=1) {
+    static async getAll(category="", _page=1, _sort_mode) {
         let linkApi = "/api/catalog/product/list?category%20name="
         if (category === "") 
         {
@@ -16,7 +16,8 @@ export default class CatalogListAPI {
         try {
             response = await axios.get(domen + linkApi + category, {
                 params: {
-                    page: _page
+                    page: _page,
+                    sort_mode: _sort_mode
                 }
             })
 
