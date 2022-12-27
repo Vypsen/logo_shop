@@ -207,7 +207,7 @@
     /* identical to box height, or 29px */
 
     display: flex;
-    align-items: center;
+    align-items: baseline;
 
     /* Proto/07 */
 
@@ -320,3 +320,49 @@
     background: #31333b;
 }
 
+.showRoomStyle {
+    height: 48px;
+    left: 67.99%;
+    right: 12.57%;
+    top: 584px;
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    text-decoration: underline;
+    /* or 24px */
+
+
+    /* Proto/05 */
+
+    color: #616575;
+}
+
+
+.priceWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.standartPrice{
+    margin-top: 5px;
+}
+
+.standartPriceWithSale{
+    font-family: 'PT Root UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 121%;
+
+    margin-top: 5px;
+
+    text-decoration: line-through;
+
+
+    color: #515562b0;
+}

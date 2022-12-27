@@ -251,7 +251,7 @@ const ProductPage = () => {
                             />
                             <div>
                                 <div>Не можете подобрать разер?</div>
-                                <div>Запишитесь на примерку в наш шоурум</div>
+                                <a className='showRoomStyle' href="https://www.whatsapp.com/">Запишитесь на примерку в наш шоурум</a>
                             </div>
                         </div>
                     </div>
@@ -273,7 +273,22 @@ const ProductPage = () => {
                     </div>
                     
                     <div className='orderContentElements'>
-                        <div className='priceStyle'>{otherInfoData.price} ₽</div>
+                        <div className='priceStyle'>
+                            {otherInfoData.is_sale
+                                ?
+                                    <>
+                                        <div className='priceWrapper'>
+                                            <div className='salePrice'>{otherInfoData.discount_price} ₽ </div>
+
+                                            <div className='standartPriceWithSale'>{otherInfoData.price}</div>
+                                        </div>
+                                    </>
+                                :
+                                    <>
+                                        <div className='standartPrice'>{otherInfoData.price}</div>
+                                    </>
+                            } 
+                        </div>
                         <div className='orderContentElementsFunctionalBtns'>
                             <div>
                                 <Counter 
